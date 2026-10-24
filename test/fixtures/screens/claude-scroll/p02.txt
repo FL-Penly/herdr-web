@@ -1,0 +1,40 @@
+❯ In ONE single assistant message, with no text before the tool calls, issue three Write tool calls in parallel: cache.js (an LRU cache class, about 70 lines), queu…
+   57 `api(req, res)` in `api.js` implements a small CRUD resource. Users are stored in a module-level `Map` keyed by a numeric id that increments from 1, which me
+      ans all data is lost on restart and is not shared between processes; this is deliberate for a demo service and the Map can be swapped for `Store` or a real d
+      atabase later without changing the HTTP surface.
+   58
+   59 | Method | Path | Success | Notes |
+   60 | --- | --- | --- | --- |
+   61 | `GET` | `/users` | `200` | Array of all users |
+   62 | `POST` | `/users` | `201` | Body `{ name, email? }`; returns the new user |
+   63 | `GET` | `/users/:id` | `200` | `404` if the id is unknown |
+   64 | `PUT` | `/users/:id` | `200` | Body `{ name, email? }`; email kept if omitted |
+   65 | `DELETE` | `/users/:id` | `200` | Returns `{ "deleted": <id> }` |
+   66
+   67 Request bodies must be JSON with a non-empty string `name`; anything else is rejected with `400`. Bodies over 1 KB are rejected with `413`. Unsupported metho
+      ds return `405` with an `Allow` header, mirroring the behaviour of `routes.js`.
+   68
+   69 ## Building blocks
+   70
+   71 The utility modules are ready to use but are not yet imported by any handler. Each one exposes a small class with no global state (apart from the default `lo
+      gger` instance), so you can create as many independent instances as you need, for example one rate limiter per route or one cache per upstream service.
+   72
+   73 - **`Store`** keeps values with an optional time-to-live. Expired entries are removed lazily when read and also by a periodic sweep whose timer is `unref()`e
+      d so it never keeps the process alive; call `close()` to stop the sweep explicitly in tests.
+   74 - **`LRUCache`** evicts the least recently used entry once it is full and can call an `onEvict(key, value)` hook. `stats()` reports size, hits, misses, and h
+      it rate.
+   75 - **`JobQueue`** runs async jobs up to a concurrency limit and retries failures with exponential backoff capped at `maxBackoffMs`. `add(fn)` returns a promis
+      e for the job's result, and the queue emits `queued`, `retry`, `done`, `failed`, and `idle` events.
+   76 - **`RateLimiter`** keeps one token bucket per key with an upper bound on how many keys it tracks. `check(key)` returns `{ allowed, remaining, retryAfterMs }
+      `, which maps directly onto a `429` response with a `Retry-After` header.
+   77 - **`Logger`** writes one line per record in text or JSON, filters by level, and supports child loggers that carry extra fields. The default instance reads `
+      LOG_LEVEL` and `LOG_FORMAT` from the environment.
+   78 - **`validate.js`** offers composable checks such as `v.object`, `v.string`, and `v.array`; `parseAndValidate(schema, raw)` parses JSON and returns `{ ok, er
+      rors, body }` with path-qualified error messages like `body.name: is required`.
+   79 - **`Emitter`** in `events.js` is a lightweight alternative to Node's `EventEmitter` with `on`, `once`, `off`, and `emit`, where a throwing listener is repor
+      ted through an `error` event instead of stopping the remaining listeners from running.
+   80
+   81 ## Error format
+   82
+   83 Every error response is a JSON object with an `error` string and, where useful, extra context fields such as `path`, `method`, `limit`, or `id`. Clients shou
+      ld branch on the HTTP status code first and treat the `error` t Jump to bottom (ctrl+End) ↓ ge rather than a stable machine identifier, because the wording m

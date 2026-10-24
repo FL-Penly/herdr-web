@@ -1,0 +1,40 @@
+  - Words 35–40 are time and place words used in daily speech.
+
+  The README still contains only its title. The table groups 40 basic words by part of speech, and each one has a
+  Chinese translation and a usage note.
+
+✻ Worked for 13s · done 9:59 AM
+
+❯ Without using tools, write 6 short paragraphs about bridges, the second with a numbered list of 3 items and one line
+  of inline code.
+
+● Bridges are among the oldest structures people build. From fallen logs laid across streams to steel spans over wide
+  bays, they all do the same job: carry people and goods over a gap that would otherwise be hard or impossible to
+  cross.
+
+  Engineers usually sort bridges by how they carry loads, and three basic types cover most designs. In a simple model
+  you might write the load rule as load_capacity > dead_load + live_load, the requirement every design must meet.
+  1. Beam bridges rest a horizontal deck on supports at each end.
+  2. Arch bridges push their weight outward along a curve into strong abutments.
+  3. Suspension bridges hang the deck from cables slung between tall towers.
+
+  Materials have changed bridge building over the centuries. The Romans used stone and concrete for arches that still
+  stand today. The Industrial Revolution brought iron and then steel, which allowed much longer spans. Modern bridges
+  often use prestressed concrete and high-strength steel cables.
+
+  Wind and vibration are some of the hardest problems engineers face. The 1940 collapse of the Tacoma Narrows Bridge
+  showed how wind can make a deck twist until it fails. After it, aerodynamic testing in wind tunnels became a standard
+  part of designing long-span bridges.
+
+  Bridges also carry cultural meaning. The Golden Gate Bridge, Tower Bridge in London and the Zhaozhou Bridge in China
+  are landmarks as much as roads. People photograph them, write poems about them, and use them as symbols of connection
+  between places and communities.
+
+  Today, bridge engineering puts more weight on long-term maintenance and monitoring. Sensors embedded in decks and
+  cables can track strain, temperature and movement in real time. That helps keep these structures safe for decades, so
+
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+❯ 
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  alice@devbox:repo (main) [Opus 5.5 (1M context)] | ctx: 4% used / 96% left
+  ⏸ manual mode on · ← 2 agents

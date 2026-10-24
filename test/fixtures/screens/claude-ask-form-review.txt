@@ -1,0 +1,17 @@
+❯ Use the AskUserQuestion tool once, asking me two questions in the same call: 'Favorite color?' with options Red and
+  Blue, and 'Favorite fruit?' with options Apple and Pear. After I answer, reply with just my two answers.
+
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+←  ☒ Color  ☒ Fruit  ✔ Submit  →
+
+Review your answers
+
+ ● Favorite color?
+   → Red
+ ● Favorite fruit?
+   → Pear
+
+Ready to submit your answers?
+
+❯ 1. Submit answers
+  2. Cancel

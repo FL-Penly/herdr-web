@@ -1,0 +1,15 @@
+● Baseline cases are running (~10 min). After that I'll deploy the fix and run the same set.
+
+✻ Sautéed for 18s · done 2:36 PM · 1 shell still running
+
+● Background command "Poll for authorization in background" completed (exit code 0)
+
+● That was the old poll finishing; the baseline cases are still running.
+
+✻ Brewed for 3s · done 2:37 PM · 1 shell still running
+
+────────────────────────────────────────────────────────────────────────────────
+❯ 
+────────────────────────────────────────────────────────────────────────────────
+  alice@host:project (main) [Opus 5.5 (1M context)] | ctx: 33% used / 67% left
+  ⏵⏵ bypass permissions on · 1 shell · ← 2 agents

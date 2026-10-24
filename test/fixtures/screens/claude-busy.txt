@@ -1,0 +1,12 @@
+⏺ Reading the parser module.
+
+⏺ Read(src/tui/screen.ts)
+  ⎿  Read 120 lines
+
+✻ Cogitating… (42s · ↓ 3.1k tokens · esc to interrupt)
+
+──────────────────────────────────────────────────────────────────────────────────────── ultracode ─
+❯ 
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  alice@devbox:project (main) [Opus 5.5 (1M context)] | ctx: 19% used / 81% left
+  ⏵⏵ bypass permissions on (shift+tab to cycle) · ◐ medium · ultracode · /effort

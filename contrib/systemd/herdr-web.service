@@ -1,0 +1,25 @@
+# systemd user unit for herdr-web.
+#
+#   cp contrib/systemd/herdr-web.service ~/.config/systemd/user/
+#   systemctl --user daemon-reload && systemctl --user enable --now herdr-web
+#   loginctl enable-linger "$USER"    # keep it running after logout
+#
+# Edit WorkingDirectory to point at your clone, and PATH so it finds bun, herdr, claude and codex.
+# HERDR_WEB_* settings go in Environment= lines here. The token is not logged; print the login URL with
+# `bun run url`, run with the same HERDR_WEB_* values as the unit.
+
+[Unit]
+Description=herdr-web: a web UI for the Claude Code and Codex sessions in herdr
+Documentation=https://github.com/FL-Penly/herdr-web
+
+[Service]
+Type=simple
+WorkingDirectory=%h/herdr-web
+Environment=PATH=%h/.bun/bin:%h/.local/bin:/usr/local/bin:/usr/bin:/bin
+ExecStart=/usr/bin/env bun src/main.ts
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=yes
+
+[Install]
+WantedBy=default.target

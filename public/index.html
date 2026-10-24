@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f0f0f" media="(prefers-color-scheme: dark)">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="herdr">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="format-detection" content="telephone=no">
+  <title>herdr</title>
+  <script src="/js/boot.js"></script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="/vendor/@fontsource/inter/400.css">
+  <link rel="stylesheet" href="/vendor/@fontsource/inter/500.css">
+  <link rel="stylesheet" href="/vendor/@fontsource/inter/600.css">
+  <link rel="stylesheet" href="/vendor/@fontsource/jetbrains-mono/400.css">
+  <link rel="stylesheet" href="/vendor/@fontsource/jetbrains-mono/500.css">
+  <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+<svg class="sprite" aria-hidden="true">
+  <symbol id="i-new" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></symbol>
+  <symbol id="i-inbox" viewBox="0 0 24 24"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.5 5h13L22 12v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6Z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></symbol>
+  <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></symbol>
+  <symbol id="i-branch" viewBox="0 0 24 24"><circle cx="6" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="8" r="2"/><path d="M6 7v10"/><path d="M18 10c0 4-6 3-12 7"/></symbol>
+  <symbol id="i-term" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m7 9 3 3-3 3"/><path d="M13 15h4"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.5 7.2L4 20l1-4.4A8 8 0 1 1 21 12Z"/></symbol>
+  <symbol id="i-fork" viewBox="0 0 24 24"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="12" cy="19" r="2"/><path d="M6 7v2a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3V7"/><path d="M12 12v5"/></symbol>
+  <symbol id="i-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11"/><path d="m7 10 5 5 5-5"/><path d="M5 20h14"/></symbol>
+  <symbol id="i-collapse-all" viewBox="0 0 24 24"><path d="m7 4 5 5 5-5"/><path d="m7 20 5-5 5 5"/></symbol>
+  <symbol id="i-expand-all" viewBox="0 0 24 24"><path d="m7 9 5-5 5 5"/><path d="m7 15 5 5 5-5"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9Z"/><path d="M14 3v6h6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-cmd" viewBox="0 0 24 24"><path d="m5 8 4 4-4 4"/><path d="M12 17h7"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></symbol>
+  <symbol id="i-q" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14"/><path d="M12 17h.01"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+  <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 9h6v6H9z"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></symbol>
+  <symbol id="i-side" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7Z"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11"/><path d="m4 6 1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 4a3 3 0 0 1 0 6M21 20a6 6 0 0 0-4-5.6"/></symbol>
+  <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></symbol>
+  <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></symbol>
+  <symbol id="i-bell-off" viewBox="0 0 24 24"><path d="M8.7 3A6 6 0 0 1 18 8c0 3 .7 5 1.4 6.5M17 17H3s3-2 3-9c0-.7.1-1.4.3-2"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/><path d="m2 2 20 20"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14.9-3M4 13a8 8 0 0 0 14.9 3"/><path d="M4 4v4h4M20 20v-4h-4"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13.5" r="3.5"/></symbol>
+  <symbol id="i-line" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 12h6M16 10v4"/></symbol>
+  <symbol id="i-keyboard" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/></symbol>
+  <symbol id="i-select" viewBox="0 0 24 24"><path d="M4 7V5a1 1 0 0 1 1-1h2M17 4h2a1 1 0 0 1 1 1v2M20 17v2a1 1 0 0 1-1 1h-2M7 20H5a1 1 0 0 1-1-1v-2"/><path d="M8 9h8M8 12h8M8 15h5"/></symbol>
+  <symbol id="i-stack" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5Z"/><path d="m3 13 9 5 9-5"/></symbol>
+  <symbol id="i-fit" viewBox="0 0 24 24"><path d="M3 12h18"/><path d="m7 8-4 4 4 4M17 8l4 4-4 4"/></symbol>
+  <symbol id="i-claude" viewBox="0 0 24 24"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4M8.6 3.8l6.8 16.4M3.8 15.4l16.4-6.8"/></symbol>
+  <symbol id="i-codex" viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="9" ry="4"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(120 12 12)"/></symbol>
+  <symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></symbol>
+</svg>
+
+<div id="app" class="app">
+  <aside id="sidebar" class="sidebar" aria-label="herdr">
+    <div class="sidebar-top">
+      <div class="brand"><span class="logo" aria-hidden="true"></span>herdr</div>
+      <button type="button" class="icon-btn" id="sidebar-hide" data-i18n-aria-label="sidebar.hide" data-i18n-title="sidebar.hide"><svg class="icon icon-md" aria-hidden="true"><use href="#i-side"/></svg></button>
+    </div>
+    <nav class="nav">
+      <button type="button" class="nav-item" id="nav-new"><svg class="icon icon-md" aria-hidden="true"><use href="#i-new"/></svg><span data-i18n="nav.newSession"></span><kbd class="nav-kbd" data-kbd="alt+N"></kbd></button>
+      <button type="button" class="nav-item" id="nav-needs" aria-pressed="false"><svg class="icon icon-md" aria-hidden="true"><use href="#i-inbox"/></svg><span data-i18n="nav.needsYou"></span><span class="badge" id="needs-count" hidden></span></button>
+      <button type="button" class="nav-item" id="nav-search"><svg class="icon icon-md" aria-hidden="true"><use href="#i-search"/></svg><span data-i18n="nav.search"></span><kbd class="nav-kbd" data-kbd="mod+K"></kbd></button>
+    </nav>
+    <div class="sidebar-label">
+      <h2 id="list-title" data-i18n="sidebar.sessions"></h2>
+      <div class="sidebar-tools">
+        <button type="button" class="icon-btn icon-btn-sm" id="toggle-groups"><svg class="icon" aria-hidden="true"><use href="#i-collapse-all"/></svg></button>
+        <button type="button" class="icon-btn icon-btn-sm" id="toggle-terminals" aria-pressed="false" data-i18n-aria-label="sidebar.toggleTerminals" data-i18n-title="sidebar.toggleTerminals"><svg class="icon" aria-hidden="true"><use href="#i-term"/></svg></button>
+      </div>
+    </div>
+    <div id="thread-list" class="thread-list" aria-labelledby="list-title"></div>
+    <div class="usage-strip" id="usage-strip" role="button" tabindex="0" hidden data-i18n-aria-label="usage.title" data-i18n-title="usage.title"></div>
+    <div class="sidebar-footer">
+      <span class="avatar" aria-hidden="true">H</span>
+      <span id="footer-summary" class="footer-summary"></span>
+      <button type="button" class="icon-btn icon-btn-sm" id="sound-toggle"></button>
+      <button type="button" class="icon-btn icon-btn-sm" id="theme-toggle"></button>
+      <button type="button" class="icon-btn icon-btn-sm" id="settings-btn" aria-haspopup="menu" data-i18n-aria-label="settings.label" data-i18n-title="settings.label"><svg class="icon" aria-hidden="true"><use href="#i-settings"/></svg></button>
+      <span id="conn" class="conn" role="status"></span>
+    </div>
+  </aside>
+
+  <main id="main" class="main">
+    <section id="home-view" class="view" hidden>
+      <div class="bar">
+        <button type="button" class="icon-btn sidebar-opener" data-open-sidebar data-i18n-aria-label="sidebar.open"><svg class="icon icon-md" aria-hidden="true"><use href="#i-menu"/></svg><span class="opener-dot" hidden></span></button>
+        <span class="spacer"></span>
+        <button type="button" class="needs-opener" data-open-needs hidden><svg class="icon" aria-hidden="true"><use href="#i-inbox"/></svg><span class="needs-opener-count"></span></button>
+      </div>
+      <div class="home">
+        <h1 class="home-title" data-i18n="home.title"></h1>
+        <div class="home-pickers">
+          <button type="button" class="btn btn-sm home-dir" id="home-dir" aria-haspopup="dialog" aria-expanded="false"><svg class="icon" aria-hidden="true"><use href="#i-folder"/></svg><span class="chip-label"></span><svg class="icon" aria-hidden="true"><use href="#i-down"/></svg></button>
+          <button type="button" class="btn btn-sm" id="home-workspace" aria-haspopup="menu" data-i18n-title="home.workspaceHeader"><svg class="icon" aria-hidden="true"><use href="#i-stack"/></svg><span class="chip-label"></span><svg class="icon" aria-hidden="true"><use href="#i-down"/></svg></button>
+          <button type="button" class="btn btn-sm" id="home-agent" aria-haspopup="menu"><svg class="icon" aria-hidden="true"><use href="#i-cpu"/></svg><span class="chip-label"></span><svg class="icon" aria-hidden="true"><use href="#i-down"/></svg></button>
+        </div>
+        <form class="composer-box is-large" id="home-form">
+          <div class="attachments" id="home-attachments"></div>
+          <textarea id="home-text" rows="2" data-i18n-placeholder="home.placeholder" data-i18n-aria-label="home.placeholder"></textarea>
+          <div class="composer-row">
+            <button type="button" class="chip chip-icon" data-attach="home" data-i18n-aria-label="composer.attach" data-i18n-title="composer.attach"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></button>
+            <button type="button" class="chip" id="home-model" aria-haspopup="menu"></button>
+            <button type="button" class="chip" id="home-effort" aria-haspopup="menu"></button>
+            <span class="spacer"></span>
+            <button type="submit" class="send-btn" data-i18n-aria-label="composer.send" data-i18n-title="composer.send"><svg class="icon" aria-hidden="true"><use href="#i-up"/></svg></button>
+          </div>
+        </form>
+        <p class="home-note" id="home-shell-note" hidden data-i18n="home.shellNote"></p>
+        <div class="suggestions" id="suggestions">
+          <button type="button" class="suggestion" data-insert="/review"><b><svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg><span data-i18n="home.suggest.reviewTitle"></span></b><span data-i18n="home.suggest.reviewBody"></span></button>
+          <button type="button" class="suggestion" data-insert="/init"><b><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg><span data-i18n="home.suggest.initTitle"></span></b><span data-i18n="home.suggest.initBody"></span></button>
+          <button type="button" class="suggestion" data-insert="/goal "><b><svg class="icon" aria-hidden="true"><use href="#i-bolt"/></svg><span data-i18n="home.suggest.goalTitle"></span></b><span data-i18n="home.suggest.goalBody"></span></button>
+        </div>
+      </div>
+    </section>
+
+    <section id="pane-view" class="view" hidden>
+      <div class="tabs" id="tabs"></div>
+      <div class="bar">
+        <button type="button" class="icon-btn sidebar-opener" data-open-sidebar data-i18n-aria-label="sidebar.open"><svg class="icon icon-md" aria-hidden="true"><use href="#i-menu"/></svg><span class="opener-dot" hidden></span></button>
+        <div class="bar-heading">
+          <h1 class="bar-title" id="pane-title"></h1>
+          <span class="bar-sub" id="pane-sub"></span>
+        </div>
+        <span class="crumb" id="pane-crumb"></span>
+        <span class="spacer"></span>
+        <button type="button" class="needs-opener" data-open-needs hidden><svg class="icon" aria-hidden="true"><use href="#i-inbox"/></svg><span class="needs-opener-count"></span></button>
+        <div class="segmented" id="view-switch" role="group" data-i18n-aria-label="view.label">
+          <button type="button" data-view="chat" aria-pressed="true"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg><span data-i18n="view.chat"></span></button>
+          <button type="button" data-view="term" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-term"/></svg><span data-i18n="view.terminal"></span></button>
+        </div>
+        <button type="button" class="btn" id="diff-btn" hidden aria-pressed="false" data-i18n-title="review.toggle" data-i18n-aria-label="review.toggle"></button>
+        <button type="button" class="icon-btn" id="more-btn" aria-haspopup="menu" data-i18n-aria-label="menu.more" data-i18n-title="menu.more"><svg class="icon icon-md" aria-hidden="true"><use href="#i-more"/></svg></button>
+      </div>
+      <div class="pane-body">
+        <div id="conversation" class="conversation">
+          <div class="conversation-column">
+            <div id="turns" class="turns" aria-live="off"></div>
+            <div id="live" class="live" aria-live="polite"></div>
+          </div>
+        </div>
+        <button type="button" class="sticky-prompt" id="sticky-prompt" hidden data-i18n-title="thread.backToPrompt"></button>
+        <button type="button" class="jump-latest" id="jump-latest" hidden data-i18n-aria-label="thread.jumpLatest" data-i18n-title="thread.jumpLatest"><svg class="icon icon-md" aria-hidden="true"><use href="#i-down"/></svg></button>
+        <div id="terminal-view" class="terminal-view" hidden>
+          <div class="terminal-strip">
+            <span id="term-mode" class="term-mode"></span><span id="term-size"></span><span class="spacer"></span>
+            <span class="terminal-hint" data-i18n="term.hint"></span>
+            <button type="button" class="btn btn-sm btn-ghost" id="term-takeover" hidden data-i18n="term.takeover"></button>
+            <div class="term-tools" id="term-tools">
+              <button type="button" class="btn btn-sm btn-ghost term-fit" data-term="fit" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-fit"/></svg><span class="term-fit-label"></span></button>
+              <button type="button" class="icon-btn icon-btn-sm" data-term="font-down" data-i18n-aria-label="term.fontSmaller" data-i18n-title="term.fontSmaller"><span aria-hidden="true">A−</span></button>
+              <button type="button" class="icon-btn icon-btn-sm" data-term="font-up" data-i18n-aria-label="term.fontLarger" data-i18n-title="term.fontLarger"><span aria-hidden="true">A+</span></button>
+              <button type="button" class="icon-btn icon-btn-sm" data-term="find" data-i18n-aria-label="term.find" data-i18n-title="term.find"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg></button>
+              <button type="button" class="icon-btn icon-btn-sm touch-only" data-term="line" aria-pressed="false" data-i18n-aria-label="term.line" data-i18n-title="term.line"><svg class="icon" aria-hidden="true"><use href="#i-line"/></svg></button>
+              <button type="button" class="icon-btn icon-btn-sm touch-only" data-term="select" data-i18n-aria-label="term.select" data-i18n-title="term.select"><svg class="icon" aria-hidden="true"><use href="#i-select"/></svg></button>
+            </div>
+          </div>
+          <div class="term-panel" id="term-panel" hidden>
+            <code data-panel-command></code><span data-i18n="panelTerm.note"></span><span class="spacer"></span>
+            <button type="button" class="btn btn-sm btn-ghost" data-panel="keep" data-i18n="panelTerm.keep"></button>
+            <button type="button" class="btn btn-sm btn-primary" data-panel="chat" data-i18n="panelTerm.back"></button>
+          </div>
+          <div id="term" class="term"></div>
+          <div class="term-text" id="term-text" hidden>
+            <div class="term-text-bar">
+              <label class="term-find"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg><input type="search" id="term-find" autocomplete="off" spellcheck="false" data-i18n-placeholder="term.findPlaceholder" data-i18n-aria-label="term.find"></label>
+              <span class="term-find-count" id="term-find-count" aria-live="polite"></span>
+              <button type="button" class="icon-btn icon-btn-sm" data-term="find-prev" data-i18n-aria-label="term.findPrev" data-i18n-title="term.findPrev"><span aria-hidden="true">↑</span></button>
+              <button type="button" class="icon-btn icon-btn-sm" data-term="find-next" data-i18n-aria-label="term.findNext" data-i18n-title="term.findNext"><span aria-hidden="true">↓</span></button>
+              <span class="spacer"></span>
+              <button type="button" class="btn btn-sm" data-term="quote" data-i18n="term.quote" data-i18n-title="term.quoteHint"></button>
+              <button type="button" class="btn btn-sm" data-term="copy-all" data-i18n="term.copyAll"></button>
+              <button type="button" class="icon-btn icon-btn-sm" data-term="select-close" data-i18n-aria-label="term.selectClose" data-i18n-title="term.selectClose"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></button>
+            </div>
+            <pre id="term-text-body"></pre>
+          </div>
+          <div class="term-selection" id="term-selection" hidden>
+            <svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="term.copied"></span>
+            <button type="button" class="btn btn-sm" data-term="quote-selection" data-i18n="term.quote"></button>
+          </div>
+          <form class="term-line" id="term-line">
+            <input id="term-line-input" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="send" data-i18n-placeholder="term.linePlaceholder" data-i18n-aria-label="term.linePlaceholder">
+            <button type="submit" class="send-btn" data-i18n-aria-label="term.lineSend" data-i18n-title="term.lineSend"><svg class="icon" aria-hidden="true"><use href="#i-up"/></svg></button>
+          </form>
+          <div class="mobile-keys" id="mobile-keys">
+            <button type="button" data-key="keyboard" data-i18n-aria-label="term.keyboard" data-i18n-title="term.keyboard"><svg class="icon icon-md" aria-hidden="true"><use href="#i-keyboard"/></svg></button>
+            <button type="button" data-key="esc">Esc</button>
+            <button type="button" data-key="tab">Tab</button>
+            <button type="button" data-key="ctrl" data-mod="ctrl" aria-pressed="false" data-i18n-title="term.modHint">Ctrl</button>
+            <button type="button" data-key="alt" data-mod="alt" aria-pressed="false" data-i18n-title="term.modHint">Alt</button>
+            <button type="button" data-key="shift" data-mod="shift" aria-pressed="false" data-i18n-title="term.modHint">⇧</button>
+            <button type="button" data-key="ctrl-c">^C</button>
+            <button type="button" data-key="up" data-i18n-aria-label="term.keyUp">↑</button>
+            <button type="button" data-key="down" data-i18n-aria-label="term.keyDown">↓</button>
+            <button type="button" data-key="left" data-i18n-aria-label="term.keyLeft">←</button>
+            <button type="button" data-key="right" data-i18n-aria-label="term.keyRight">→</button>
+            <button type="button" data-key="enter" data-i18n-aria-label="term.keyEnter">⏎</button>
+          </div>
+        </div>
+      </div>
+      <div class="composer" id="composer">
+        <div class="goal-bar" id="goal-bar" hidden></div>
+        <div class="reply-queue" id="reply-queue" hidden></div>
+        <form class="composer-box" id="reply-form">
+          <div class="attachments" id="reply-attachments"></div>
+          <div class="blocked-note" id="reply-blocked" hidden><svg class="icon" aria-hidden="true"><use href="#i-q"/></svg><span data-i18n="composer.blocked"></span></div>
+          <textarea id="reply-text" rows="1" data-i18n-aria-label="composer.label"></textarea>
+          <div class="composer-row">
+            <button type="button" class="chip chip-icon" data-attach="reply" data-i18n-aria-label="composer.attach" data-i18n-title="composer.attach"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></button>
+            <button type="button" class="chip" id="reply-model" aria-haspopup="menu"></button>
+            <button type="button" class="chip" id="reply-effort" aria-haspopup="menu" hidden data-i18n-title="effort.header"></button>
+            <button type="button" class="chip" id="reply-mode"></button>
+            <span class="spacer"></span>
+            <button type="button" class="chip" id="reply-queue-btn" hidden><svg class="icon" aria-hidden="true"><use href="#i-stack"/></svg><span class="chip-text" data-i18n="composer.queueShort"></span></button>
+            <button type="submit" class="send-btn" id="reply-send"><svg class="icon" aria-hidden="true"><use href="#i-up"/></svg></button>
+          </div>
+        </form>
+        <div class="composer-meta"><span id="meta-cwd"></span><span id="meta-branch"></span><span class="spacer"></span><span id="meta-shells"></span><span id="meta-ctx"></span></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="scrim" class="scrim" hidden></div>
+  <aside id="review" class="review" hidden data-i18n-aria-label="review.title">
+    <div class="review-head">
+      <h2 data-i18n="review.title"></h2><span class="review-stat" id="review-stat"></span><span class="spacer"></span>
+      <button type="button" class="icon-btn icon-btn-sm" id="review-refresh" data-i18n-aria-label="review.refresh" data-i18n-title="review.refresh"><svg class="icon" aria-hidden="true"><use href="#i-refresh"/></svg></button>
+      <button type="button" class="icon-btn icon-btn-sm" id="review-close" data-i18n-aria-label="review.close" data-i18n-title="review.close"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></button>
+    </div>
+    <div class="review-files" id="review-files"></div>
+    <div class="review-diff" id="review-diff"></div>
+    <form class="review-form" id="review-form">
+      <input class="input" id="review-text" autocomplete="off" data-i18n-placeholder="review.placeholder" data-i18n-aria-label="review.placeholder">
+      <button type="submit" class="btn btn-sm" data-i18n="review.send"></button>
+    </form>
+  </aside>
+</div>
+
+<section id="signin" class="signin" hidden aria-labelledby="signin-title">
+  <form class="signin-card" id="signin-form" novalidate>
+    <div class="brand"><span class="logo" aria-hidden="true"></span>herdr</div>
+    <h1 class="signin-title" id="signin-title" data-i18n="signin.title"></h1>
+    <p class="signin-body" data-i18n="signin.body"></p>
+    <label class="dialog-field"><span data-i18n="signin.label"></span>
+      <input class="input" id="signin-token" type="password" name="token" autocomplete="current-password" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go" aria-describedby="signin-error signin-hint">
+    </label>
+    <p class="signin-error" id="signin-error" role="alert" hidden></p>
+    <button type="submit" class="btn btn-primary signin-submit" id="signin-submit" data-i18n="signin.submit"></button>
+    <p class="signin-hint" id="signin-hint"></p>
+  </form>
+</section>
+
+<div id="sheet-scrim" class="scrim sheet-scrim" hidden></div>
+<div id="menu" class="popover" role="menu" hidden></div>
+<div id="slash" class="popover slash" role="listbox" hidden></div>
+<div id="dir-picker" class="popover dir-picker" role="dialog" data-i18n-aria-label="dir.title" hidden>
+  <div class="menu-header" data-i18n="dir.title"></div>
+  <form class="dir-form" id="dir-form">
+    <input class="input" id="dir-input" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go" data-i18n-placeholder="dir.placeholder" data-i18n-aria-label="dir.placeholder">
+    <button type="submit" class="btn btn-sm" data-i18n="dir.use"></button>
+  </form>
+  <div class="dir-list" id="dir-list" role="listbox" data-i18n-aria-label="dir.title"></div>
+</div>
+<div id="palette" class="overlay" hidden>
+  <div class="palette" role="dialog" aria-modal="true" data-i18n-aria-label="palette.label">
+    <div class="palette-input"><svg class="icon icon-md" aria-hidden="true"><use href="#i-search"/></svg><input id="palette-input" autocomplete="off" role="combobox" aria-expanded="true" aria-controls="palette-list" data-i18n-placeholder="palette.placeholder" data-i18n-aria-label="palette.placeholder"></div>
+    <div id="palette-list" class="palette-list" role="listbox"></div>
+  </div>
+</div>
+<div id="toasts" class="toasts" aria-live="polite"></div>
+<input type="file" id="file-input" multiple hidden>
+
+<script src="/vendor/@xterm/xterm/lib/xterm.js"></script>
+<script src="/vendor/@xterm/addon-unicode11/lib/addon-unicode11.js"></script>
+<script src="/vendor/@xterm/addon-web-links/lib/addon-web-links.js"></script>
+<script type="module" src="/js/main.js"></script>
+</body>
+</html>

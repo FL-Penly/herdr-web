@@ -1,0 +1,40 @@
+› Without using any tools: first write one short intro sentence, then a markdown table with 45 rows (columns: #, Engl…
+  ─────  ──────────────  ─────────────────────  ───────────────────────────────────────────
+   38     learn           学习                   I want to learn Chinese.
+  ─────  ──────────────  ─────────────────────  ───────────────────────────────────────────
+   39     work            工作                   They work in a hospital.
+  ─────  ──────────────  ─────────────────────  ───────────────────────────────────────────
+   40     play            玩耍                   The children play outside after school.
+  ─────  ──────────────  ─────────────────────  ───────────────────────────────────────────
+   41     help            帮助                   Could you help me with this bag?
+  ─────  ──────────────  ─────────────────────  ───────────────────────────────────────────
+   42     travel          旅行                   We hope to travel next summer.
+  ─────  ──────────────  ─────────────────────  ───────────────────────────────────────────
+   43     remember        记得                   I remember your birthday.
+  ─────  ──────────────  ─────────────────────  ───────────────────────────────────────────
+   44     tomorrow        明天                   We will meet tomorrow.
+  ─────  ──────────────  ─────────────────────  ───────────────────────────────────────────
+   45     together        一起                   Let's cook dinner together.
+
+  These 45 words cover everyday objects, feelings, actions, and places.
+
+  Worked for 22s • 9:55 AM
+
+
+› Read README.md once with a tool. Then, with no more tools, write a short intro paragraph using **bold** and `code`,
+  then a 30-row markdown table (columns: #, word, 中文), then a two-sentence summary.
+
+
+• I’ll read README.md once, then write the requested paragraph, table, and summary.
+
+• Explored
+  └ Read README.md
+    + Show details
+
+• Working (6s • esc to interrupt)
+
+
+› Ask Codex to do anything
+
+  GPT 6.0 Astra high · Context 99% left · /home/alice/project · Fast off
+  ← for agents · ? for shortcuts                                                              ⚠ 1 warning · f2 to view

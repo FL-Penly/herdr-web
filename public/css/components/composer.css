@@ -1,0 +1,395 @@
+.composer {
+  flex: 0 0 auto;
+  padding: var(--space-1-5) var(--space-6) max(var(--space-4), env(safe-area-inset-bottom));
+}
+
+.view.is-terminal .composer {
+  display: none;
+}
+
+.composer-box {
+  max-width: var(--column-width);
+  margin: 0 auto;
+  padding: var(--space-2-5) var(--space-2-5) var(--space-2) var(--space-4);
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-3xl);
+  background: var(--color-raised);
+  box-shadow: var(--shadow-2);
+  transition: border-color var(--duration-fast);
+}
+
+.composer-box:focus-within {
+  border-color: var(--color-text-muted);
+}
+
+.composer-box.is-dragging {
+  border-style: dashed;
+  border-color: var(--color-blue);
+}
+
+.composer-box textarea {
+  display: block;
+  width: 100%;
+  min-height: 24px;
+  max-height: 40vh;
+  padding: var(--space-0-5) 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  font-size: var(--text-base);
+  line-height: var(--leading);
+  resize: none;
+}
+
+.composer-box textarea::placeholder {
+  color: var(--color-text-faint);
+}
+
+.composer-row {
+  display: flex;
+  gap: var(--space-1);
+  align-items: center;
+  margin-top: var(--space-2);
+}
+
+/* On a phone the model, effort and mode chips can be wider than the box; they give way, the send button does not. */
+.composer-row > .chip:not(.chip-icon) {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.send-btn {
+  display: inline-flex;
+  flex: 0 0 32px;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: var(--color-accent-text);
+}
+
+.send-btn:disabled {
+  cursor: default;
+  opacity: 0.35;
+}
+
+.send-btn.is-stop .icon,
+.send-btn.is-pending .icon {
+  display: none;
+}
+
+.send-btn.is-pending::before {
+  width: 14px;
+  height: 14px;
+  border: 2px solid currentcolor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  content: "";
+  animation: spin 0.8s linear infinite;
+}
+
+.send-btn.is-pending:disabled {
+  opacity: 0.7;
+}
+
+.send-btn.is-stop::before {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--color-accent-text);
+  content: "";
+}
+
+.composer-meta {
+  display: flex;
+  gap: var(--space-3-5);
+  min-width: 0;
+  max-width: var(--column-width);
+  margin: 7px auto 0;
+  padding: 0 var(--space-2);
+  color: var(--color-text-faint);
+  font-size: 12px;
+}
+
+.composer-meta span {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.attachments {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1-5);
+  margin-bottom: var(--space-2);
+}
+
+.attachments:empty {
+  display: none;
+}
+
+.attachment {
+  display: inline-flex;
+  gap: var(--space-1-5);
+  align-items: center;
+  padding: 3px var(--space-1-5) 3px 9px;
+  border-radius: var(--radius-md);
+  background: var(--color-hover);
+  color: var(--color-text-muted);
+  font: 12px var(--font-mono);
+}
+
+.attachment-thumb {
+  width: 28px;
+  height: 28px;
+  margin-left: calc(-1 * var(--space-1));
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+}
+
+.attachment-name {
+  max-width: 220px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* The bar under an uploading tile fills with --progress. */
+.attachment.is-uploading {
+  position: relative;
+  overflow: hidden;
+}
+
+.attachment.is-uploading::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: var(--progress, 0%);
+  height: 2px;
+  background: var(--color-blue);
+  content: "";
+  transition: width 0.2s;
+}
+
+.attachment.is-uploading .attachment-thumb {
+  opacity: 0.6;
+}
+
+.attachment-progress {
+  color: var(--color-text-faint);
+  font-family: var(--font-sans);
+  white-space: nowrap;
+}
+
+.attachments-hint {
+  flex-basis: 100%;
+  color: var(--color-amber);
+  font-size: var(--text-sm);
+}
+
+.attachment-remove {
+  padding: 0 var(--space-0-5);
+  border: 0;
+  background: transparent;
+  color: var(--color-text-faint);
+  font-size: var(--text-base);
+  line-height: 1;
+}
+
+.blocked-note {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  padding-bottom: var(--space-1);
+  color: var(--color-blue);
+  font-size: var(--text-md);
+  font-weight: 500;
+}
+
+.goal-bar {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  max-width: var(--column-width);
+  margin: 0 auto var(--space-2);
+  padding: 7px var(--space-2-5) 7px var(--space-3);
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-lg);
+  background: var(--color-raised);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.goal-text {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--color-text);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.goal-status {
+  color: var(--color-amber);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+@media (max-width: 820px), (max-height: 520px) and (pointer: coarse) {
+  .composer {
+    padding: var(--space-1) var(--space-2-5) max(var(--space-3), env(safe-area-inset-bottom));
+  }
+}
+
+/* The text is drawn by .composer-mirror under the textarea, whose own text is transparent (caret, selection and
+   input stay its own), so an attachment token (`[图片1]`) can show as a capsule. Both wrap alike: no scrollbar. */
+.composer-field {
+  position: relative;
+}
+
+.composer-field textarea {
+  position: relative;
+  color: transparent;
+  caret-color: var(--color-text);
+  scrollbar-width: none;
+}
+
+.composer-field.is-composing textarea {
+  color: var(--color-text);
+}
+
+.composer-field.is-composing .composer-mirror {
+  visibility: hidden;
+}
+
+.composer-field textarea::-webkit-scrollbar {
+  display: none;
+}
+
+.composer-field textarea::selection {
+  background: color-mix(in srgb, var(--color-blue) 28%, transparent);
+  color: transparent;
+}
+
+.composer-mirror {
+  position: absolute;
+  inset: 0;
+  padding: var(--space-0-5) 0;
+  overflow: hidden;
+  color: var(--color-text);
+  font: inherit;
+  font-size: var(--text-base);
+  line-height: var(--leading);
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  pointer-events: none;
+}
+
+.composer-box.is-large .composer-mirror {
+  font-size: var(--text-lg);
+}
+
+.composer-mirror mark {
+  border-radius: 6px;
+  background: var(--color-blue-bg);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-blue) 30%, transparent);
+  color: var(--color-blue);
+}
+
+/* A touch screen's text field (iOS keeps a padding of its own inside it, input methods draw what they compose)
+   cannot be matched pixel for pixel: there the textarea shows its own text and caret, tokens as plain text. */
+@media (hover: none) and (pointer: coarse) {
+  .composer-field textarea,
+  .composer-field textarea::selection {
+    color: var(--color-text);
+  }
+
+  .composer-mirror {
+    display: none;
+  }
+}
+
+/* The brackets keep the token's width in the textarea above; drawn, they would only crowd the capsule. */
+.composer-mirror mark i {
+  color: transparent;
+  font-style: normal;
+}
+
+.attachment-token {
+  padding: 0 5px;
+  border-radius: 4px;
+  background: var(--color-blue-bg);
+  color: var(--color-blue);
+  font-size: var(--text-xs);
+  white-space: nowrap;
+}
+
+/* A mode other than the default one stands out, as the TUI's footer colors it. */
+#reply-mode.is-set {
+  color: var(--color-amber);
+}
+
+/* Messages waiting for the turn to end, sent one by one. */
+.reply-queue {
+  max-width: var(--column-width);
+  margin: 0 auto var(--space-2);
+  padding: 6px var(--space-2) 6px var(--space-3);
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-lg);
+  background: var(--color-raised);
+  font-size: var(--text-sm);
+}
+
+.queue-head {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  min-height: 24px;
+  color: var(--color-text-muted);
+}
+
+.queue-title {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.queue-status {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.queue-status.is-held {
+  color: var(--color-amber);
+}
+
+.queue-items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.queue-item {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  min-height: 28px;
+}
+
+.queue-text {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--color-text);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

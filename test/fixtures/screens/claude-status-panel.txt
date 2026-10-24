@@ -1,0 +1,11 @@
+⏺ Done.
+
+▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
+  Status   Config   Usage
+
+  Version: 2.1.0
+  Session ID: 00000000-0000-4000-8000-000000000001
+  cwd: /home/alice/project
+  Model: Opus 5.5 (1M context)
+
+  Esc to cancel

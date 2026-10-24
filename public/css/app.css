@@ -1,0 +1,21 @@
+@layer vendor, tokens, base, layout, components, utilities;
+
+@import url("/vendor/@xterm/xterm/css/xterm.css") layer(vendor);
+@import url("tokens.css") layer(tokens);
+@import url("base.css") layer(base);
+@import url("layout.css") layer(layout);
+@import url("components/controls.css") layer(components);
+@import url("components/sidebar.css") layer(components);
+@import url("components/tabs.css") layer(components);
+@import url("components/thread.css") layer(components);
+@import url("components/cards.css") layer(components);
+@import url("components/composer.css") layer(components);
+@import url("components/home.css") layer(components);
+@import url("components/review.css") layer(components);
+@import url("components/popover.css") layer(components);
+@import url("components/feedback.css") layer(components);
+@import url("components/signin.css") layer(components);
+@import url("components/terminal.css") layer(components);
+@import url("components/viewer.css") layer(components);
+@import url("components/mobile.css") layer(components);
+@import url("utilities.css") layer(utilities);

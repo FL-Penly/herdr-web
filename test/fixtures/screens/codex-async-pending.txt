@@ -1,0 +1,11 @@
+• Updated src/tui/status.ts
+
+• Working (12s • esc to interrupt)
+
+  ? 2 questions · Deploy target
+  shift+← to answer
+
+› Ask Codex to do anything
+
+  GPT 6.0 Astra high · Context 63% left · ~/project · Fast off
+  ← for agents · ? for shortcuts

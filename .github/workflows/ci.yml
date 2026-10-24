@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        # The oldest Bun in package.json's engines, and the newest.
+        bun: ['1.3.7', latest]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: ${{ matrix.bun }}
+      # Older Bun cannot read the lockfile format newer Bun writes, so only the latest install is frozen.
+      - run: bun install ${{ matrix.bun == 'latest' && '--frozen-lockfile' || '' }}
+      - run: bun run check

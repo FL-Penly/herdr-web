@@ -1,0 +1,35 @@
+.sidebar-opener,
+.mobile-keys,
+.term-line {
+  display: none;
+}
+
+.app.is-sidebar-hidden .sidebar-opener {
+  display: inline-flex;
+}
+
+@media (max-width: 820px), (max-height: 520px) and (pointer: coarse) {
+  .sidebar-opener {
+    display: inline-flex;
+  }
+
+  .mobile-keys,
+  .terminal-view.is-line .term-line {
+    display: flex;
+  }
+
+  .segmented button span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  #sidebar-hide,
+  .terminal-hint,
+  .composer-meta {
+    display: none;
+  }
+}

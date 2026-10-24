@@ -1,0 +1,10 @@
+• I'm going to keep refactoring the parser while you decide.
+
+  Question 1/2 · Deploy target
+  Which environment should the release go to?
+
+› 1. Staging
+  2. Production
+  3. Other
+
+  enter submit  ^] skip  shift+→ main prompt  shift+← next question

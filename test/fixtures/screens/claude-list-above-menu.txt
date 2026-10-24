@@ -1,0 +1,14 @@
+⏺ Here is the plan:
+
+  1. Split the parser into modules
+  2. Add fixtures for every dialog
+  3. Wire the service
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+ Resume a conversation
+
+ ❯ Refactor the TUI parser                       2 hours ago
+   Write the README                              yesterday
+   Fix the flaky upload test                     3 days ago
+
+ Enter to select · Esc to cancel

@@ -1,0 +1,40 @@
+❯ In ONE single assistant message, with no text before the tool calls, issue three Write tool calls in parallel: cache.js (an LRU cache class, about 70 lines), queu…
+   11 - [Building blocks](#building-blocks)
+   12 - [Error format](#error-format)
+   13 - [Limits](#limits)
+   14 - [Development](#development)
+   15 - [Current status](#current-status)
+   16
+   17 ## Overview
+   18
+   19 The service is organised as a set of small, single-purpose CommonJS modules. Request handling lives in `routes.js` and `api.js`, which both export a plain `(
+      req, res)` function that can be passed straight to `http.createServer`. Shared response formatting lives in `util.js`, and the remaining modules (`store.js`,
+       `cache.js`, `queue.js`, `rate.js`, `logger.js`, `validate.js`, `events.js`) are self-contained utilities that do not import each other, so each one can be r
+      ead, tested, and replaced on its own without touching the rest of the codebase.
+   20
+   21 All responses are JSON. Every handler writes its response through the single `json(res, code, body)` helper in `util.js`, which sets the `content-type: appli
+      cation/json` header, writes the status code, and serialises the body; keeping that in one place means a future change such as adding a request id header or s
+      witching to pretty-printed output in development only has to be made once.
+   22
+   23 ## Modules
+   24
+   25 | File | Purpose |
+   26 | --- | --- |
+   27 | `server.js` | Process entry point that creates the HTTP server |
+   28 | `util.js` | `json(res, code, body)` helper and a `status` export |
+   29 | `routes.js` | `route(req, res)`: `/health`, `/echo`, 404 and 405 |
+   30 | `api.js` | `api(req, res)`: `/users` CRUD over an in-memory Map |
+   31 | `store.js` | `Store`: key-value store with per-key TTL |
+   32 | `cache.js` | `LRUCache`: fixed-capacity least-recently-used cache |
+   33 | `queue.js` | `JobQueue`: concurrency-limited queue with retries |
+   34 | `rate.js` | `TokenBucket` and keyed `RateLimiter` |
+   35 | `logger.js` | `Logger`: leveled text or JSON logging |
+   36 | `validate.js` | Composable validators for JSON request bodies |
+   37 | `events.js` | `Emitter`: minimal typed-free event emitter |
+   38
+   39 ## Endpoints
+   40
+   41 These are served by `route(req, res)` in `routes.js`.
+   42
+   43 ### `GET /health`
+   44                                                                 Jump to bottom (ctrl+End) ↓

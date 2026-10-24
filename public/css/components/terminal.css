@@ -1,0 +1,253 @@
+.terminal-view {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+  background: var(--term-bg);
+}
+
+.terminal-strip {
+  display: flex;
+  flex: 0 0 32px;
+  gap: var(--space-3);
+  align-items: center;
+  height: 32px;
+  padding: 0 var(--space-3) 0 var(--space-5);
+  border-bottom: 1px solid var(--color-line);
+  background: var(--color-bg);
+  color: var(--color-text-faint);
+  font-size: 12px;
+}
+
+.terminal-hint {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.term-mode {
+  display: inline-flex;
+  gap: var(--space-1-5);
+  align-items: center;
+  white-space: nowrap;
+}
+
+.term-mode::before {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-text-faint);
+  content: "";
+}
+
+.term-mode.is-control {
+  color: var(--color-green);
+}
+
+.term-mode.is-control::before {
+  background: var(--color-green);
+}
+
+.term-mode.is-observe {
+  color: var(--color-amber);
+}
+
+.term-mode.is-observe::before {
+  background: var(--color-amber);
+}
+
+.term {
+  flex: 1;
+  min-height: 0;
+  padding: var(--space-2) var(--space-2-5) var(--space-1-5) var(--space-4);
+  overflow: hidden;
+}
+
+.term .xterm {
+  height: 100%;
+}
+
+.term .xterm-viewport {
+  background: transparent !important;
+}
+
+.term.is-dragging {
+  outline: 2px dashed var(--color-blue);
+  outline-offset: -8px;
+}
+
+.mobile-keys {
+  gap: 3px;
+  padding: var(--space-1-5) var(--space-1-5) max(var(--space-1-5), env(safe-area-inset-bottom));
+  border-top: 1px solid var(--color-line);
+  background: var(--color-sidebar);
+}
+
+.mobile-keys button {
+  flex: 1;
+  padding: 7px 0;
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-md);
+  background: var(--color-raised);
+  font-size: var(--text-sm);
+}
+
+/* Readable while watching: the pane keeps its own size at a legible font, and the view pans over it. */
+.term.is-readable {
+  overflow: auto;
+}
+
+.term.is-readable .xterm {
+  width: max-content;
+  height: max-content;
+}
+
+.term-fit {
+  height: 26px;
+  font: 500 var(--text-xs) var(--font-sans);
+}
+
+.term-fit[aria-pressed="true"] {
+  background: var(--color-selected);
+  color: var(--color-text);
+}
+
+.term-fit[hidden] {
+  display: none;
+}
+
+/* The terminal opened for a panel command (`/config`): the chat comes back once the panel closes. */
+.term-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  align-items: center;
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--color-line);
+  background: var(--color-blue-bg);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.term-panel[hidden] {
+  display: none;
+}
+
+.term-panel code {
+  color: var(--color-text);
+  font-family: var(--font-mono);
+}
+
+/* After a mouse selection: it is on the clipboard, and can go into the message being written. */
+.term-selection {
+  position: absolute;
+  z-index: 4;
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  padding: var(--space-1) var(--space-1) var(--space-1) var(--space-2-5);
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-md);
+  background: var(--color-raised);
+  box-shadow: var(--shadow-2);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  white-space: nowrap;
+}
+
+.term-selection[hidden],
+.term-selection [hidden] {
+  display: none;
+}
+
+.term-selection .icon {
+  color: var(--color-green);
+}
+
+.term-find {
+  display: flex;
+  flex: 0 1 220px;
+  gap: var(--space-1-5);
+  align-items: center;
+  min-width: 0;
+  padding: 0 var(--space-2);
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-md);
+  background: var(--color-raised);
+}
+
+.term-find:focus-within {
+  border-color: var(--color-blue);
+}
+
+.term-find input {
+  flex: 1;
+  min-width: 0;
+  height: 26px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--color-text);
+  font: inherit;
+  font-size: var(--text-sm);
+}
+
+.term-find-count {
+  min-width: 3em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.term-text-bar [hidden] {
+  display: none;
+}
+
+.term-match {
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--color-amber) 45%, transparent);
+  color: inherit;
+}
+
+.term-match.is-current {
+  background: var(--color-amber);
+  color: #000;
+}
+
+/* A modifier held until tapped again: a bar under its name. */
+.mobile-keys button.is-locked {
+  box-shadow: inset 0 -3px 0 var(--color-blue);
+}
+
+/* The phone's input line: edit, then send to the terminal. */
+.term-line {
+  gap: var(--space-1-5);
+  align-items: center;
+  padding: var(--space-1-5) var(--space-1-5) 0;
+  border-top: 1px solid var(--color-line);
+  background: var(--color-sidebar);
+}
+
+.term-line input {
+  flex: 1;
+  min-width: 0;
+  height: 36px;
+  padding: 0 var(--space-2-5);
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-md);
+  background: var(--color-raised);
+  color: var(--color-text);
+  font: 16px var(--font-mono);
+}
+
+.term-line input:focus {
+  border-color: var(--color-blue);
+  outline: 0;
+}
+
+.term-line .send-btn {
+  flex: 0 0 auto;
+}
+
+.terminal-view.is-line .term-line + .mobile-keys {
+  border-top: 0;
+}

@@ -1,0 +1,10 @@
+⏺ Looking at the dialog parser now.
+
+  ⎿  Interrupted · What should Claude do instead?
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+❯ please refactor the dialog parser so it only
+  looks at the bottom of the screen
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  alice@devbox:project (main) [Opus 5.5 (1M context)] | ctx: 20% used / 80% left
+  ⏵⏵ accept edits on (shift+tab to cycle)

@@ -1,0 +1,406 @@
+.live-status {
+  display: flex;
+  gap: var(--space-2-5);
+  align-items: center;
+  margin: var(--space-3-5) 0 var(--space-1);
+  color: var(--color-text-muted);
+  font-size: var(--text-md);
+}
+
+.live-elapsed {
+  color: var(--color-text-faint);
+  white-space: nowrap;
+}
+
+.ask-card {
+  margin: var(--space-3-5) 0 var(--space-1-5);
+  padding: var(--space-3-5) var(--space-4);
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-2xl);
+  background: var(--color-raised);
+  box-shadow: 0 6px 20px rgb(0 0 0 / 0.16);
+}
+
+.ask-head {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  margin-bottom: var(--space-2-5);
+  font-weight: 600;
+}
+
+.ask-tag {
+  margin-left: auto;
+  padding: 1px var(--space-2);
+  border-radius: var(--radius-pill);
+  background: var(--color-blue-bg);
+  color: var(--color-blue);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.failed-card {
+  border-color: var(--color-red);
+}
+
+.failed-card .ask-head {
+  color: var(--color-red);
+}
+
+.failed-reason {
+  margin: calc(-1 * var(--space-1)) 0 var(--space-2-5);
+  color: var(--color-text-muted);
+  font-size: var(--text-md);
+}
+
+.ask-card pre {
+  max-height: 260px;
+  margin: 0 0 var(--space-3);
+  padding: var(--space-2-5) var(--space-3);
+  overflow: auto;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  background: var(--color-code);
+  font: var(--text-sm) var(--font-mono);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.ask-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+/* Some permission options are a whole sentence; wrap them inside the card. */
+.ask-buttons .btn {
+  max-width: 100%;
+  height: auto;
+  min-height: 26px;
+  padding-block: 3px;
+  text-align: left;
+  white-space: normal;
+}
+
+.ask-keys {
+  margin-left: auto;
+  color: var(--color-text-faint);
+  font-size: 12px;
+}
+
+.option {
+  display: flex;
+  gap: var(--space-2-5);
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-xl);
+  background: transparent;
+  text-align: left;
+}
+
+.option:hover,
+.option[aria-current="true"] {
+  border-color: var(--color-text-muted);
+}
+
+.option small {
+  display: block;
+  margin-top: var(--space-0-5);
+  color: var(--color-text-faint);
+  font-size: 12px;
+}
+
+.option-key {
+  display: flex;
+  flex: 0 0 20px;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  border-radius: var(--radius-sm);
+  background: var(--color-hover);
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+  font-weight: 600;
+}
+
+.other-form {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  margin-top: var(--space-2);
+}
+
+.other-form .input {
+  flex: 1;
+}
+
+.command-output {
+  padding: var(--space-2-5) var(--space-3);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  background: var(--color-code);
+}
+
+.command-output-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.command-output-head {
+  display: flex;
+  gap: var(--space-1-5);
+  align-items: center;
+  margin-bottom: var(--space-1-5);
+  color: var(--color-text-faint);
+  font-size: 12px;
+}
+
+.command-output-head .icon-btn {
+  margin-left: auto;
+}
+
+.command-output pre {
+  overflow-x: auto;
+  color: var(--color-text);
+  font-size: 12px;
+  line-height: 1.45;
+  white-space: pre;
+}
+
+.ask-buttons .btn.has-desc {
+  align-items: flex-start;
+}
+
+.btn-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.btn-desc {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 400;
+  opacity: 0.75;
+  word-break: break-all;
+}
+
+.change-block {
+  margin: 0 0 var(--space-2-5);
+  overflow: hidden;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  background: var(--color-code);
+}
+
+.change-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1-5) var(--space-2);
+  align-items: center;
+  padding: var(--space-1-5) var(--space-3);
+  border-bottom: 1px solid var(--color-line);
+  background: var(--color-raised);
+  font: var(--text-sm) var(--font-mono);
+}
+
+.change-name {
+  min-width: 0;
+  overflow: hidden;
+  font-weight: 600;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.change-scope {
+  margin-left: auto;
+  color: var(--color-text-faint);
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+}
+
+.change-body {
+  overflow: auto;
+  font: 12px / 1.55 var(--font-mono);
+}
+
+/* Taller than this, the change scrolls inside the card until the reader expands it. */
+.change-body.is-clamped {
+  max-height: 320px;
+}
+
+.change-row {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  padding-right: var(--space-3);
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.change-gutter {
+  padding-right: var(--space-2);
+  color: var(--color-text-faint);
+  text-align: right;
+  user-select: none;
+}
+
+.change-row.is-add {
+  background: var(--color-green-bg);
+}
+
+.change-row.is-del {
+  background: var(--color-red-bg);
+  color: var(--color-red);
+}
+
+.change-hunk {
+  padding: var(--space-0-5) var(--space-3);
+  background: var(--color-hover);
+  color: var(--color-text-faint);
+}
+
+.ask-card .change-cmd {
+  max-height: 320px;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+}
+
+.change-toggle {
+  width: 100%;
+  justify-content: center;
+  border-top: 1px solid var(--color-line);
+  border-radius: 0;
+}
+
+.question-preview {
+  margin: 0 0 var(--space-2);
+  color: var(--color-text-faint);
+  font-size: var(--text-sm);
+}
+
+.question-preview summary {
+  cursor: pointer;
+}
+
+.question-preview pre {
+  margin-top: var(--space-1-5);
+}
+
+.ask-question {
+  margin: 0 0 var(--space-3);
+  font-weight: 500;
+  white-space: pre-wrap;
+}
+
+/* A dialog of several questions: one step each, then submitting them. */
+.ask-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1-5);
+  margin: 0 0 var(--space-2-5);
+  padding: 0;
+  list-style: none;
+  font-size: var(--text-xs);
+}
+
+.ask-steps li {
+  display: inline-flex;
+  gap: var(--space-1);
+  align-items: center;
+  padding: 1px var(--space-2);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-pill);
+  color: var(--color-text-muted);
+}
+
+.ask-steps li.is-done {
+  color: var(--color-text);
+}
+
+.ask-steps li.is-current {
+  border-color: var(--color-blue);
+  background: var(--color-blue-bg);
+  color: var(--color-blue);
+}
+
+.ask-note {
+  margin: 0 0 var(--space-2);
+  color: var(--color-amber);
+  font-size: var(--text-sm);
+}
+
+.ask-review {
+  display: grid;
+  gap: var(--space-1) var(--space-3);
+  margin: 0 0 var(--space-3);
+  padding: var(--space-2-5) var(--space-3);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  background: var(--color-code);
+}
+
+.ask-review dt {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.ask-review dd {
+  margin: 0 0 var(--space-1-5);
+  font-weight: 600;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.ask-review dd:last-child {
+  margin-bottom: 0;
+}
+
+/* Only the end of a change fit on the agent's screen: said up front, with the way to see all of it. */
+.change-partial {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-2);
+  padding: var(--space-2) var(--space-2-5);
+  border: 1px solid var(--color-amber);
+  border-radius: var(--radius-lg);
+  color: var(--color-amber);
+  font-size: var(--text-sm);
+}
+
+.change-partial > span {
+  flex: 1 1 14em;
+  color: var(--color-text);
+}
+
+.ask-card pre.is-partial {
+  border-style: dashed;
+}
+
+.ask-card pre.is-whole {
+  max-height: min(420px, 50vh);
+}
+
+.change-note {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-2);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+/* Claude Code's line under a finished turn that left background shells running: a note, not progress. */
+.live-status.turn-end {
+  color: var(--color-text-faint);
+  font-size: var(--text-sm);
+}

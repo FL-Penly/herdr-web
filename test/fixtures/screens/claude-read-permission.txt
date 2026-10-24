@@ -1,0 +1,35 @@
+
+ ▐▛███▛█   Claude Code v2.1.310
+▝▜██████▀  Opus 5.5 (1M context) with medium effort · API Usage Billing
+ ▝▝   ▝▝   /tmp/hw-probe-0000/repo
+
+
+❯ Read the file /tmp/hw-probe-0000/outside/req.txt with the Read tool and summarize it in one line.
+
+  Read 1 file
+  ⎿  Interrupted · What should Claude do instead?
+
+✻ Brewed for 3s · done 9:52 AM
+
+❯ Read /tmp/hw-probe-0000/outside/very-long-directory-name-for-wrapping/another-quite-long-segment/uploads-for-the-rev
+  iew/20261024-6f4a02-requirements.txt with the Read tool.
+
+● Reading /tmp/hw-probe-0000/outside/very-long-directory-name-for-wrapping/another-quite-long-segment/uploads-for-the-r
+  eview/20261024-6f4a02-requirements.txt
+  ⎿  /tmp/hw-probe-0000/outside/very-long-directory-name-for-wrapping/another-quite-long-segment/uploads-for-the-review
+     /20261024-6f4a02-requirements.txt
+
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ Read file
+╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+ Read(/tmp/hw-probe-0000/outside/very-long-directory-name-for-wrapping/another-quite-long-segment/uploads-for-the-revi
+ ew/20261024-6f4a02-requirements.txt)
+╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+ Do you want to proceed?
+ ❯ 1. Yes
+   2. Yes, allow reading from /tmp/hw-probe-0000/outside/very-long-directory-name-for-wrapping/another-quite-long-segme
+      nt/uploads-for-the-review during this session
+
+   3. No
+
+ Esc to cancel · Tab to amend

@@ -1,0 +1,676 @@
+.conversation {
+  flex: 1;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.conversation-column {
+  max-width: var(--column-width);
+  margin: 0 auto;
+  padding: var(--space-3-5) var(--space-7) var(--space-7);
+}
+
+.load-more {
+  display: block;
+  margin: 0 auto 18px;
+  padding: 3px var(--space-3-5);
+  border: 1px dashed var(--color-line-strong);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--color-text-faint);
+  font-size: var(--text-sm);
+}
+
+.history-note {
+  margin: 0 auto 18px;
+  color: var(--color-text-faint);
+  font-size: var(--text-sm);
+  text-align: center;
+}
+
+.empty-thread {
+  padding: 80px var(--space-5);
+  color: var(--color-text-faint);
+  text-align: center;
+}
+
+.empty-thread b {
+  display: block;
+  margin-bottom: var(--space-1-5);
+  color: var(--color-text-muted);
+  font-size: var(--text-xl);
+}
+
+.msg-user {
+  display: flex;
+  justify-content: flex-end;
+  margin: 22px 0 18px;
+}
+
+.turns > :first-child .msg-user:first-child,
+.turns > .msg-user:first-child {
+  margin-top: var(--space-1-5);
+}
+
+.msg-user.is-pending .msg-bubble {
+  opacity: 0.6;
+}
+
+.msg-user-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  min-width: 0;
+  max-width: 82%;
+}
+
+.msg-user-images {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+  margin-bottom: var(--space-1);
+  color: var(--color-text-muted);
+  font-size: 12px;
+}
+
+.msg-bubble {
+  position: relative;
+  max-width: 100%;
+  padding: 9px 15px;
+  border-radius: 18px;
+  background: var(--color-bubble);
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.msg-bubble.is-clamped {
+  min-width: 9em;
+  max-height: 14.5em;
+  overflow: hidden;
+}
+
+.msg-expand {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 18px 15px var(--space-1-5);
+  border: 0;
+  background: linear-gradient(transparent, var(--color-bubble) 60%);
+  color: var(--color-text-muted);
+  font-size: 12px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.msg-answers {
+  display: grid;
+  gap: var(--space-1-5);
+  white-space: normal;
+}
+
+.msg-answer {
+  display: grid;
+  gap: var(--space-0-5);
+}
+
+.msg-answer-q {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.msg-assistant {
+  margin: var(--space-1-5) 0 var(--space-3);
+  overflow-wrap: anywhere;
+}
+
+.system-note {
+  display: flex;
+  gap: var(--space-1-5);
+  align-items: center;
+  justify-content: center;
+  margin: var(--space-3-5) 0;
+  color: var(--color-text-faint);
+  font-size: 12px;
+}
+
+.system-note::before,
+.system-note::after {
+  flex: 1;
+  height: 1px;
+  background: var(--color-line);
+  content: "";
+}
+
+.turn-toggle {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  width: 100%;
+  margin: var(--space-0-5) 0 var(--space-2);
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-text-faint);
+  font-size: var(--text-md);
+  text-align: left;
+}
+
+.turn-toggle:hover {
+  color: var(--color-text-muted);
+}
+
+.turn-toggle .icon {
+  transition: transform var(--duration-fast);
+}
+
+.turn-toggle[aria-expanded="true"] .icon {
+  transform: rotate(90deg);
+}
+
+.turn-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--color-line);
+}
+
+.tool-step {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  padding: 3px var(--space-1-5) 3px 0;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: none;
+  color: var(--color-text-muted);
+  font-size: var(--text-md);
+  text-align: left;
+}
+
+.tool-step.is-openable:hover {
+  color: var(--color-text);
+}
+
+.tool-step > .icon {
+  color: var(--color-text-faint);
+}
+
+.tool-label {
+  color: var(--color-text);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.tool-detail {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--color-text-muted);
+  font: var(--text-sm) var(--font-mono);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.tool-meta {
+  color: var(--color-text-faint);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.tool-meta.is-ok {
+  display: inline-flex;
+  color: var(--color-green);
+}
+
+.tool-meta.is-error {
+  color: var(--color-red);
+}
+
+.tool-output {
+  max-height: 360px;
+  margin: var(--space-1) 0 var(--space-2) 23px;
+  padding: 9px var(--space-3);
+  overflow: auto;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  background: var(--color-code);
+  color: var(--color-text-muted);
+  font: 12px / 1.55 var(--font-mono);
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.tool-output.markdown {
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  white-space: normal;
+  word-break: normal;
+}
+
+.diff-line-add {
+  display: block;
+  background: var(--color-green-bg);
+  color: var(--color-green);
+}
+
+.diff-line-del {
+  display: block;
+  background: var(--color-red-bg);
+  color: var(--color-red);
+}
+
+/* Under an answer, on the right: the time, then copy and fork. */
+.reply-actions {
+  display: flex;
+  gap: var(--space-0-5);
+  align-items: center;
+  justify-content: flex-end;
+  margin: var(--space-1-5) calc(-1 * var(--space-1-5)) 22px 0;
+  color: var(--color-text-faint);
+}
+
+.reply-actions .icon-btn {
+  color: var(--color-text-faint);
+}
+
+.reply-actions .icon-btn:hover {
+  color: var(--color-text);
+}
+
+.reply-time {
+  order: -1;
+  margin-right: var(--space-2);
+  font-size: 12px;
+}
+
+.note {
+  display: flex;
+  gap: var(--space-2);
+  align-items: flex-start;
+  margin: var(--space-2) 0;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.note > .icon {
+  margin-top: var(--space-0-5);
+  color: var(--color-text-faint);
+}
+
+.note pre {
+  max-height: 320px;
+  margin: 0;
+  overflow: auto;
+  font: var(--text-sm) var(--font-mono);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.note-ok,
+.note-ok > .icon {
+  color: var(--color-green);
+}
+
+.note-ok pre,
+.note-plain pre {
+  font-family: var(--font-sans);
+}
+
+.markdown > :first-child {
+  margin-top: 0;
+}
+
+.markdown > :last-child {
+  margin-bottom: 0;
+}
+
+.markdown p {
+  margin: 0 0 var(--space-2-5);
+}
+
+.markdown ul,
+.markdown ol {
+  margin: var(--space-1) 0 var(--space-2-5);
+  padding-left: 22px;
+}
+
+.markdown li {
+  margin: var(--space-0-5) 0;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4 {
+  margin: var(--space-4) 0 var(--space-1-5);
+  font-size: var(--text-lg);
+  font-weight: 600;
+}
+
+.markdown code {
+  padding: 1px 5px;
+  border: 1px solid var(--color-line);
+  border-radius: 5px;
+  background: var(--color-code);
+  font: var(--text-sm) var(--font-mono);
+}
+
+.markdown pre {
+  padding: var(--space-2-5) var(--space-3);
+  overflow-x: auto;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  background: var(--color-code);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}
+
+.markdown pre code {
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+/* A wide table scrolls sideways inside the reply; the shadows at its edges say there is more. */
+.markdown .table-scroll {
+  max-width: 100%;
+  margin: var(--space-2) 0 var(--space-3);
+  overflow-x: auto;
+  background:
+    linear-gradient(to right, var(--color-bg) 30%, transparent) left / 24px 100% no-repeat local,
+    linear-gradient(to left, var(--color-bg) 30%, transparent) right / 24px 100% no-repeat local,
+    radial-gradient(farthest-side at 0 50%, rgb(0 0 0 / 0.16), transparent) left / 10px 100% no-repeat scroll,
+    radial-gradient(farthest-side at 100% 50%, rgb(0 0 0 / 0.16), transparent) right / 10px 100% no-repeat scroll;
+}
+
+.markdown table {
+  min-width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-md);
+}
+
+.markdown th,
+.markdown td {
+  min-width: 7em;
+  max-width: 28em;
+  padding: 5px var(--space-2-5);
+  border: 1px solid var(--color-line-strong);
+  text-align: left;
+  vertical-align: top;
+}
+
+.markdown th.is-compact,
+.markdown td.is-compact {
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.markdown th.is-prose,
+.markdown td.is-prose {
+  min-width: min(16em, 70vw);
+  white-space: normal;
+}
+
+.markdown th {
+  background: var(--color-hover);
+  font-weight: 600;
+}
+
+.markdown a {
+  color: var(--color-blue);
+  text-decoration: none;
+}
+
+.markdown a:hover {
+  text-decoration: underline;
+}
+
+.markdown blockquote {
+  margin: var(--space-2) 0;
+  padding: var(--space-0-5) var(--space-3);
+  border-left: 3px solid var(--color-line-strong);
+  color: var(--color-text-muted);
+}
+
+.markdown hr {
+  margin: var(--space-3-5) 0;
+  border: 0;
+  border-top: 1px solid var(--color-line);
+}
+
+.msg-files {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1-5);
+  justify-content: flex-end;
+  margin-bottom: var(--space-1-5);
+}
+
+.msg-file {
+  display: inline-flex;
+  gap: var(--space-1-5);
+  align-items: center;
+  max-width: 100%;
+  padding: var(--space-1) var(--space-2-5) var(--space-1) var(--space-1-5);
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-lg);
+  background: var(--color-raised);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.msg-file {
+  cursor: pointer;
+  font: inherit;
+}
+
+.msg-file:hover {
+  border-color: var(--color-text-faint);
+}
+
+.msg-file.has-thumb {
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--space-1);
+}
+
+.msg-file img {
+  display: block;
+  max-width: min(240px, 100%);
+  max-height: 180px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+}
+
+.msg-file-name {
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.msg-file.has-thumb .msg-file-name {
+  max-width: 232px;
+  padding: 0 var(--space-1);
+}
+
+.plan-block {
+  margin: var(--space-2-5) 0 var(--space-3-5);
+  padding: var(--space-3) var(--space-4) var(--space-3-5);
+  border: 1px solid var(--color-line-strong);
+  border-left: 3px solid var(--color-blue);
+  border-radius: var(--radius-xl);
+  background: var(--color-raised);
+}
+
+.plan-head {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  margin-bottom: var(--space-2);
+  color: var(--color-blue);
+  font-size: var(--text-md);
+  font-weight: 600;
+}
+
+.plan-tag {
+  margin-left: auto;
+  color: var(--color-text-faint);
+  font-size: var(--text-xs);
+  font-weight: 500;
+}
+
+.live-reply {
+  margin: var(--space-2) 0 var(--space-1);
+}
+
+.live-reply-tag {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  color: var(--color-text-faint);
+  font-size: var(--text-xs);
+}
+
+.live-reply-tag .dot-running {
+  flex-basis: 10px;
+  width: 10px;
+  height: 10px;
+}
+
+.live-reply .msg-assistant {
+  margin-top: var(--space-1);
+  padding-left: var(--space-3);
+  border-left: 2px solid var(--color-line-strong);
+}
+@media (max-width: 820px), (max-height: 520px) and (pointer: coarse) {
+  .conversation-column {
+    padding: var(--space-2-5) var(--space-4) var(--space-6);
+  }
+}
+
+/* A run of tool calls folded into one line, like the TUIs' `Ran 3 shell commands`. */
+.run-step {
+  display: flex;
+  gap: var(--space-1-5);
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  padding: 3px var(--space-1-5) 3px 0;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: none;
+  color: var(--color-text-muted);
+  font-size: var(--text-md);
+  text-align: left;
+}
+
+.run-step:hover {
+  color: var(--color-text);
+}
+
+.run-step .icon {
+  transition: transform var(--duration-fast);
+}
+
+.run-step[aria-expanded="true"] .icon {
+  transform: rotate(90deg);
+}
+
+.run-summary {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.run-failed {
+  flex: 0 0 auto;
+  color: var(--color-red);
+  font-size: var(--text-xs);
+}
+
+.run-calls {
+  margin-left: 7px;
+  padding-left: var(--space-3);
+  border-left: 1px solid var(--color-line);
+}
+
+.markdown img {
+  max-width: 100%;
+  cursor: zoom-in;
+}
+
+/* The prompt of the turn being read, pinned above the thread once it scrolled out of view. */
+.sticky-prompt {
+  position: absolute;
+  top: var(--space-2);
+  right: 0;
+  left: 0;
+  z-index: 2;
+  display: -webkit-box;
+  width: calc(100% - 2 * var(--space-6));
+  max-width: calc(var(--column-width) - 2 * var(--space-7));
+  margin: 0 auto;
+  padding: var(--space-2) var(--space-3);
+  overflow: hidden;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  background: var(--color-raised);
+  box-shadow: var(--shadow-2);
+  color: var(--color-text-muted);
+  font: inherit;
+  font-size: var(--text-sm);
+  line-height: 1.45;
+  text-align: left;
+  white-space: normal;
+  cursor: pointer;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.sticky-prompt:hover {
+  border-color: var(--color-line-strong);
+  color: var(--color-text);
+}
+
+.sticky-prompt[hidden],
+.view.is-terminal .sticky-prompt {
+  display: none;
+}
+
+/* An attachment where the user put it in the message (`[图片1]`): a click shows it. */
+.msg-chip {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+  margin: 0 2px;
+  padding: 1px 8px 1px 4px;
+  border: 1px solid color-mix(in srgb, var(--color-blue) 30%, transparent);
+  border-radius: 999px;
+  background: var(--color-blue-bg);
+  color: var(--color-blue);
+  font: inherit;
+  font-size: 0.88em;
+  line-height: 1.45;
+  vertical-align: 1px;
+}
+
+.msg-chip img {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.msg-chip .icon {
+  margin-left: 2px;
+}
+
+button.msg-chip:hover {
+  border-color: var(--color-blue);
+  background: color-mix(in srgb, var(--color-blue) 16%, var(--color-blue-bg));
+}

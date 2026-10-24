@@ -1,0 +1,16 @@
+⏺ Before I write the migration I need one decision from you.
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+ ☐ Database
+
+Which database should the service use?
+
+❯ 1. PostgreSQL
+     Relational, battle-tested, needs a server
+  2. SQLite
+     Embedded file, zero configuration
+  3. Type something.
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  4. Chat about this
+
+Enter to select · ↑/↓ to navigate · Esc to cancel

@@ -1,0 +1,40 @@
+❯ In ONE single assistant message, with no text before the tool calls, issue three Write tool calls in parallel: cache.js (an LRU cache class, about 70 lines), queu…
+   25 | File | Purpose |
+   26 | --- | --- |
+   27 | `server.js` | Process entry point that creates the HTTP server |
+   28 | `util.js` | `json(res, code, body)` helper and a `status` export |
+   29 | `routes.js` | `route(req, res)`: `/health`, `/echo`, 404 and 405 |
+   30 | `api.js` | `api(req, res)`: `/users` CRUD over an in-memory Map |
+   31 | `store.js` | `Store`: key-value store with per-key TTL |
+   32 | `cache.js` | `LRUCache`: fixed-capacity least-recently-used cache |
+   33 | `queue.js` | `JobQueue`: concurrency-limited queue with retries |
+   34 | `rate.js` | `TokenBucket` and keyed `RateLimiter` |
+   35 | `logger.js` | `Logger`: leveled text or JSON logging |
+   36 | `validate.js` | Composable validators for JSON request bodies |
+   37 | `events.js` | `Emitter`: minimal typed-free event emitter |
+   38
+   39 ## Endpoints
+   40
+   41 These are served by `route(req, res)` in `routes.js`.
+   42
+   43 ### `GET /health`
+   44
+   45 Returns `200` with `{ "status": "ok", "uptime": <seconds> }`. The uptime is `process.uptime()`, so it resets whenever the process restarts; a load balancer o
+      r orchestrator can poll this endpoint to decide whether the instance is alive, but it does not check any downstream dependency and should not be treated as a
+       readiness probe for anything beyond the process itself.
+   46
+   47 ### `POST /echo`
+   48
+   49 Reads the raw request body and returns `200` with `{ "echo": "<body>", "bytes": <n> }`. The body is treated as UTF-8 text and is not parsed, so any content t
+      ype is accepted. Bodies larger than 1 KB are rejected with `413`, either up front when the `Content-Length` header already exceeds the limit or as soon as th
+      e streamed data crosses it, and in both cases the rest of the incoming stream is drained so the connection is left in a clean state.
+   50
+   51 ### Anything else
+   52
+   53 An unknown path returns `404` with `{ "error": "no such route", "path": "<path>" }`. A known path with an unsupported method returns `405` with `{ "error": "
+      Method Not Allowed", "method": "<method>" }` and an `Allow` header listing the methods that path does support, which lets clients and tooling discover the co
+      rrect method without consulting this document.
+   54
+   55 ## Users API
+   56
+   57 `api(req, res)` in `api.js` implements a small CRUD resource. U Jump to bottom (ctrl+End) ↓ evel `Map` keyed by a numeric id that increments from 1, which me

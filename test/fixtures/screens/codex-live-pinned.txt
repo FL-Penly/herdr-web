@@ -1,0 +1,40 @@
+› Without using any tools: first write one short intro sentence, then a markdown table with 45 rows (columns: #, Engl…
+   11     morning         早晨                   I exercise every morning.
+  ─────  ──────────────  ─────────────────────  ──────────────────────────────────────
+   12     night           夜晚                   The stars are bright at night.
+  ─────  ──────────────  ─────────────────────  ──────────────────────────────────────
+   13     sun             太阳                   The sun rises in the east.
+  ─────  ──────────────  ─────────────────────  ──────────────────────────────────────
+   14     moon            月亮                   The moon looks beautiful tonight.
+  ─────  ──────────────  ─────────────────────  ──────────────────────────────────────
+   15     rain            雨                     The rain stopped before lunch.
+  ─────  ──────────────  ─────────────────────  ──────────────────────────────────────
+   16     wind            风                     The wind feels cold today.
+  ─────  ──────────────  ─────────────────────  ──────────────────────────────────────
+   17     tree            树                     A bird is sitting in the tree.
+  ─────  ──────────────  ─────────────────────  ──────────────────────────────────────
+   18     flower          花                     This flower smells sweet.
+  ─────  ──────────────  ─────────────────────  ──────────────────────────────────────
+   19     mountain        山                     We climbed the mountain yesterday.
+  ─────  ──────────────  ─────────────────────  ──────────────────────────────────────
+   20     river           河流                   The river flows through the village.
+  ─────  ──────────────  ─────────────────────  ──────────────────────────────────────
+   21     food            食物                   The food tastes delicious.
+  ─────  ──────────────  ─────────────────────  ──────────────────────────────────────
+   22     bread           面包                   I bought some fresh bread.
+  ─────  ──────────────  ─────────────────────  ──────────────────────────────────────
+   23     milk            牛奶                   She drinks milk with breakfast.
+  ─────  ──────────────  ─────────────────────  ──────────────────────────────────────
+   24     happy           快乐的                 I am happy to see you.
+  ─────  ──────────────  ─────────────────────  ──────────────────────────────────────
+   25     sad             难过的                 He felt sad after saying goodbye.
+  ─────  ──────────────  ─────────────────────  ──────────────────────────────────────
+   26     tired           疲倦的                 We were tired after the trip.
+  ─────  ──────────────  ─────────────────────  ──────────────────────────────────────
+   27     hungry          饥饿的                 I am hungry after swimming.
+
+
+› Ask Codex to do anything
+
+  GPT 6.0 Astra high · Context 100% left · /home/alice/project · Fast off
+  ← for agents · ? for shortcuts                                                              ⚠ 1 warning · f2 to view

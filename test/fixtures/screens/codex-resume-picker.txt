@@ -1,0 +1,39 @@
+ Resume a previous session
+
+ Filter:  Cwd  All    Status:  Active  Archived    Sort:  Updated  Created
+
+ Type to search
+
+  › 18s ago     Draft the migration guide
+    5m ago      Plan the release notes for the next version and list the open questions about the changelog f...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────── 1 / 2 · 100% ─
+ enter resume   ^a archive   esc exit   ^c exit   tab focus   ←/→ option
+ ^o comfy   ^t preview   ^e exp   ↑/↓ browse

@@ -1,0 +1,12 @@
+• Ran ls
+  └ README.md
+
+
+  Question 1/1 (1 unanswered)
+  Which database should the service use?
+
+  › 1. PostgreSQL (Recommended)  Use the existing Postgres cluster.
+    2. SQLite                    Keep everything in a local file.
+    3. None of the above         Optionally, add details in notes (tab)
+
+  tab to add notes | enter to submit answer | esc to interrupt

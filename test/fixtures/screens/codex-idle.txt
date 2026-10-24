@@ -1,0 +1,17 @@
+
+  >_ OpenAI Codex (v0.164.0)
+     /home/alice/project
+  permissions: YOLO mode
+
+  To get started, describe a task or try one of these commands:
+
+  /init - create an AGENTS.md file with instructions for Codex
+  /status - show current session configuration
+  /model - choose what model and reasoning effort to use
+
+
+
+› Ask Codex to do anything
+
+  GPT 6.0 Astra high · Context 100% left · /home/alice/project · Fast off
+  ← for agents · ? for shortcuts                                        ⚠ 1 warning · f2 to view

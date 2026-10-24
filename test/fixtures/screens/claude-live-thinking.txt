@@ -1,0 +1,40 @@
+  ├─────┼───────────┼────────┤
+  │ 21  │ food      │ 食物   │
+  ├─────┼───────────┼────────┤
+  │ 22  │ bread     │ 面包   │
+  ├─────┼───────────┼────────┤
+  │ 23  │ tea       │ 茶     │
+  ├─────┼───────────┼────────┤
+  │ 24  │ milk      │ 牛奶   │
+  ├─────┼───────────┼────────┤
+  │ 25  │ color     │ 颜色   │
+  ├─────┼───────────┼────────┤
+  │ 26  │ morning   │ 早晨   │
+  ├─────┼───────────┼────────┤
+  │ 27  │ evening   │ 傍晚   │
+  ├─────┼───────────┼────────┤
+  │ 28  │ happy     │ 快乐的 │
+  ├─────┼───────────┼────────┤
+  │ 29  │ strong    │ 强壮的 │
+  ├─────┼───────────┼────────┤
+  │ 30  │ beautiful │ 美丽的 │
+  └─────┴───────────┴────────┘
+
+  The README is only a title with no other content. The table gives 30 basic English words with their Chinese meanings.
+
+✻ Churned for 8s · done 9:57 AM
+
+❯ Read README.md once with a tool. Then, with no more tools, write a paragraph using bold and code, a 40-row markdown
+  table (columns: #, word, 中文, note), a bullet list of 5 items, then a two-sentence summary.
+
+  Reading README.md
+  ⎿  README.md
+
+✶ Orchestrating… (8s · ↓ 69 tokens · thinking with medium effort)
+  ⎿  Tip: Use git worktrees to run multiple Claude sessions in parallel.
+
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+❯ 
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  alice@devbox:repo (main) [Opus 5.5 (1M context)] | ctx: 4% used / 96% left
+  ⏸ manual mode on · ← 2 agents

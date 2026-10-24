@@ -1,0 +1,40 @@
+  38     if (value === undefined) {
+  39       if (rules.required) errors.push(`${field} is required`);
+  40       continue;
+  41     }
+  42     const actual = typeOf(value);
+  43     if (rules.type && actual !== rules.type) {
+  44       errors.push(`${field} must be of type ${rules.type}, got ${actual}`);
+  45       continue;
+  46     }
+  47     const size = actual === 'string' || actual === 'array' ? value.length : value;
+  48     if (rules.min !== undefined && size < rules.min) {
+  49       errors.push(`${field} must be at least ${rules.min}`);
+  50     }
+  51     if (rules.max !== undefined && size > rules.max) {
+  52       errors.push(`${field} must be at most ${rules.max}`);
+  53     }
+  54     if (rules.pattern && actual === 'string' && !rules.pattern.test(value)) {
+  55       errors.push(`${field} does not match ${rules.pattern}`);
+  56     }
+  57     if (rules.enum && !rules.enum.includes(value)) {
+  58       errors.push(`${field} must be one of: ${rules.enum.join(', ')}`);
+  59     }
+  60   }
+  61   return { valid: errors.length === 0, errors };
+  62 }
+  63
+  64 function assertValid(body, schema) {
+  65   const result = validate(body, schema);
+  66   if (!result.valid) throw new ValidationError(result.errors);
+  67   return body;
+  68 }
+  69
+  70 module.exports = { ValidationError, typeOf, isPlainObject, parseJson, validate, assertValid };
+╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+ Do you want to create validate.js?
+ ❯ 1. Yes
+   2. Yes, and switch to accept edits (auto-approve file edits and common file commands) for this session (shift+tab)
+   3. No
+
+ Esc to cancel · Tab to amend

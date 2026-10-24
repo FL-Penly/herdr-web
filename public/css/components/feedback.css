@@ -1,0 +1,175 @@
+.toasts {
+  position: fixed;
+  right: var(--space-4);
+  bottom: max(var(--space-4), env(safe-area-inset-bottom));
+  z-index: var(--z-toast);
+  display: flex;
+  flex-direction: column-reverse;
+  gap: var(--space-2);
+  width: 340px;
+  /* Only the toasts themselves take taps; the gaps between them reach what is underneath. */
+  pointer-events: none;
+}
+
+.toast {
+  display: flex;
+  gap: var(--space-1);
+  align-items: flex-start;
+  padding: var(--space-2-5) var(--space-1-5) var(--space-2-5) var(--space-3-5);
+  border-left: 3px solid transparent;
+  border-radius: var(--radius-xl);
+  background: var(--color-raised);
+  box-shadow: var(--shadow-3);
+  animation: toast-in 0.2s ease-out;
+  pointer-events: auto;
+}
+
+.toast-main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+}
+
+.toast-close {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  margin-top: -2px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: none;
+  color: var(--color-text-faint);
+}
+
+.toast-close:hover {
+  background: var(--color-hover);
+  color: var(--color-text);
+}
+
+.toast-need {
+  border-left-color: var(--color-blue);
+}
+
+.toast-done {
+  border-left-color: var(--color-green);
+}
+
+.toast-error {
+  border-left-color: var(--color-red);
+}
+
+.toast-title {
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.toast-body {
+  max-height: 3.2em;
+  margin-top: var(--space-0-5);
+  overflow: hidden;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+.dialog {
+  width: min(440px, 92vw);
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-2xl);
+  background: var(--color-raised);
+  box-shadow: var(--shadow-3);
+  color: var(--color-text);
+}
+
+.dialog::backdrop {
+  background: var(--color-overlay);
+}
+
+.dialog-form {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-5);
+}
+
+.dialog-title {
+  font-size: var(--text-xl);
+  font-weight: 600;
+}
+
+.dialog-body {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+.dialog-draft {
+  max-height: 30vh;
+  margin: 0;
+  padding: var(--space-2) var(--space-3);
+  overflow: auto;
+  border-radius: var(--radius-md);
+  background: var(--color-code);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.dialog-field {
+  display: grid;
+  gap: var(--space-1-5);
+  font-size: var(--text-md);
+}
+
+.dialog-hint {
+  margin: 0;
+  color: var(--color-text-faint);
+  font-size: 12px;
+}
+
+.dialog-hint.is-error {
+  color: var(--color-red);
+}
+
+.dialog-actions {
+  display: flex;
+  gap: var(--space-2);
+  justify-content: flex-end;
+}
+
+.shortcut-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.shortcut-table td {
+  padding: var(--space-1) 0;
+}
+
+.shortcut-table td:first-child {
+  width: 40%;
+}
+
+@media (max-width: 820px), (max-height: 520px) and (pointer: coarse) {
+  .toasts {
+    right: var(--space-3);
+    left: var(--space-3);
+    width: auto;
+  }
+}

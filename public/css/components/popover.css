@@ -1,0 +1,229 @@
+.popover {
+  position: fixed;
+  z-index: var(--z-popover);
+  min-width: 220px;
+  max-width: 360px;
+  max-height: 60vh;
+  padding: var(--space-1-5);
+  overflow-y: auto;
+  border-radius: var(--radius-xl);
+  background: var(--color-raised);
+  box-shadow: var(--shadow-3);
+}
+
+.menu-header {
+  padding: var(--space-1-5) var(--space-2-5) var(--space-1);
+  color: var(--color-text-faint);
+  font-size: var(--text-xs);
+}
+
+.menu-note {
+  margin: 0;
+  padding: var(--space-1) var(--space-2-5) var(--space-1-5);
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+  line-height: 1.4;
+}
+
+.menu-item {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  width: 100%;
+  padding: var(--space-1-5) var(--space-2-5);
+  border: 0;
+  border-radius: var(--radius-md);
+  background: none;
+  color: var(--color-text);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.menu-item:hover,
+.menu-item:focus-visible {
+  background: var(--color-hover);
+  outline: none;
+}
+
+.menu-item[aria-checked="true"] {
+  background: var(--color-hover);
+}
+
+.menu-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.menu-hint {
+  margin-left: auto;
+  padding-left: var(--space-3-5);
+  color: var(--color-text-faint);
+  font-size: 12px;
+}
+
+.menu-hint.is-good {
+  color: var(--color-green);
+}
+
+.menu-item[aria-checked] > .icon-xs {
+  margin-left: var(--space-1);
+}
+
+.menu-hint + .icon-xs {
+  margin-left: var(--space-2);
+}
+
+.menu-separator {
+  height: 1px;
+  margin: 5px var(--space-1);
+  background: var(--color-line);
+}
+
+.slash {
+  z-index: var(--z-slash);
+  min-width: 0;
+  max-width: none;
+  max-height: 46vh;
+}
+
+.slash-item {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  padding: var(--space-1-5) var(--space-2-5);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.slash-item:hover,
+.slash-item[aria-selected="true"] {
+  background: var(--color-hover);
+}
+
+.slash-item b {
+  flex: 0 0 auto;
+  color: var(--color-text);
+  font: 500 var(--text-sm) var(--font-mono);
+}
+
+.slash-desc {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--color-text-faint);
+  font-size: var(--text-sm);
+  text-overflow: ellipsis;
+}
+
+.slash-source {
+  color: var(--color-text-faint);
+  font-size: 11px;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-overlay);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 14vh;
+  background: var(--color-overlay);
+}
+
+.palette {
+  width: min(620px, 92vw);
+  overflow: hidden;
+  border-radius: var(--radius-2xl);
+  background: var(--color-raised);
+  box-shadow: var(--shadow-3);
+}
+
+.palette-input {
+  display: flex;
+  gap: var(--space-2-5);
+  align-items: center;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-line);
+  color: var(--color-text-faint);
+}
+
+.palette-input input {
+  flex: 1;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--color-text);
+  font-size: var(--text-lg);
+}
+
+.palette-list {
+  max-height: 50vh;
+  padding: var(--space-1-5);
+  overflow-y: auto;
+}
+
+.palette-item {
+  display: flex;
+  gap: var(--space-2-5);
+  align-items: center;
+  padding: 7px var(--space-2-5);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+
+.palette-item[aria-selected="true"],
+.palette-item:hover {
+  background: var(--color-hover);
+}
+
+.palette-label {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.palette-hint {
+  margin-left: auto;
+  color: var(--color-text-faint);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+@media (max-width: 820px), (max-height: 520px) and (pointer: coarse) {
+  .slash-source {
+    display: none;
+  }
+}
+
+.dir-picker {
+  width: min(460px, calc(100vw - 16px));
+  max-width: none;
+}
+
+.dir-form {
+  display: flex;
+  gap: var(--space-1-5);
+  padding: var(--space-1) var(--space-1) var(--space-2);
+}
+
+.dir-form .input {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-mono);
+}
+
+.dir-item .menu-label {
+  overflow: hidden;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.dir-empty {
+  padding: var(--space-2) var(--space-2-5);
+  color: var(--color-text-faint);
+  font-size: var(--text-sm);
+}

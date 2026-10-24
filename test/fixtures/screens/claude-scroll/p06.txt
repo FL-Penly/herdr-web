@@ -1,0 +1,40 @@
+❯ In ONE single assistant message, with no text before the tool calls, issue two Write tool calls in parallel: docs.md (a ~120-line markdown guide to this service, …
+
+● Write(docs.md)
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ Create file
+ docs.md
+╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+    1 # Service Guide
+    2
+    3 This guide describes the small Node.js HTTP service in this repository: what each module does, how requests flow through the router, which endpoints exist to
+      day, and which building blocks are available but not yet wired in. Everything here uses only the Node.js standard library, so there is no install step and no
+       dependency tree to audit; you need a recent Node.js runtime (one with the global `fetch` and `URL`) and nothing else.
+    4
+    5 ## Contents
+    6
+    7 - [Overview](#overview)
+    8 - [Modules](#modules)
+    9 - [Endpoints](#endpoints)
+   10 - [Users API](#users-api)
+   11 - [Building blocks](#building-blocks)
+   12 - [Error format](#error-format)
+   13 - [Limits](#limits)
+   14 - [Development](#development)
+   15 - [Current status](#current-status)
+   16
+   17 ## Overview
+   18
+   19 The service is organised as a set of small, single-purpose CommonJS modules. Request handling lives in `routes.js` and `api.js`, which both export a plain `(
+      req, res)` function that can be passed straight to `http.createServer`. Shared response formatting lives in `util.js`, and the remaining modules (`store.js`,
+       `cache.js`, `queue.js`, `rate.js`, `logger.js`, `validate.js`, `events.js`) are self-contained utilities that do not import each other, so each one can be r
+      ead, tested, and replaced on its own without touching the rest of the codebase.
+   20
+   21 All responses are JSON. Every handler writes its response through the single `json(res, code, body)` helper in `util.js`, which sets the `content-type: appli
+      cation/json` header, writes the status code, and serialises the body; keeping that in one place means a future change such as adding a request id header or s
+      witching to pretty-printed output in development only has to be made once.
+   22
+   23 ## Modules
+   24
+   25 | File | Purpose |                                              Jump to bottom (ctrl+End) ↓

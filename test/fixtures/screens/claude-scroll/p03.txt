@@ -1,0 +1,40 @@
+❯ In ONE single assistant message, with no text before the tool calls, issue three Write tool calls in parallel: cache.js (an LRU cache class, about 70 lines), queu…
+   44
+   45 Returns `200` with `{ "status": "ok", "uptime": <seconds> }`. The uptime is `process.uptime()`, so it resets whenever the process restarts; a load balancer o
+      r orchestrator can poll this endpoint to decide whether the instance is alive, but it does not check any downstream dependency and should not be treated as a
+       readiness probe for anything beyond the process itself.
+   46
+   47 ### `POST /echo`
+   48
+   49 Reads the raw request body and returns `200` with `{ "echo": "<body>", "bytes": <n> }`. The body is treated as UTF-8 text and is not parsed, so any content t
+      ype is accepted. Bodies larger than 1 KB are rejected with `413`, either up front when the `Content-Length` header already exceeds the limit or as soon as th
+      e streamed data crosses it, and in both cases the rest of the incoming stream is drained so the connection is left in a clean state.
+   50
+   51 ### Anything else
+   52
+   53 An unknown path returns `404` with `{ "error": "no such route", "path": "<path>" }`. A known path with an unsupported method returns `405` with `{ "error": "
+      Method Not Allowed", "method": "<method>" }` and an `Allow` header listing the methods that path does support, which lets clients and tooling discover the co
+      rrect method without consulting this document.
+   54
+   55 ## Users API
+   56
+   57 `api(req, res)` in `api.js` implements a small CRUD resource. Users are stored in a module-level `Map` keyed by a numeric id that increments from 1, which me
+      ans all data is lost on restart and is not shared between processes; this is deliberate for a demo service and the Map can be swapped for `Store` or a real d
+      atabase later without changing the HTTP surface.
+   58
+   59 | Method | Path | Success | Notes |
+   60 | --- | --- | --- | --- |
+   61 | `GET` | `/users` | `200` | Array of all users |
+   62 | `POST` | `/users` | `201` | Body `{ name, email? }`; returns the new user |
+   63 | `GET` | `/users/:id` | `200` | `404` if the id is unknown |
+   64 | `PUT` | `/users/:id` | `200` | Body `{ name, email? }`; email kept if omitted |
+   65 | `DELETE` | `/users/:id` | `200` | Returns `{ "deleted": <id> }` |
+   66
+   67 Request bodies must be JSON with a non-empty string `name`; anything else is rejected with `400`. Bodies over 1 KB are rejected with `413`. Unsupported metho
+      ds return `405` with an `Allow` header, mirroring the behaviour of `routes.js`.
+   68
+   69 ## Building blocks
+   70
+   71 The utility modules are ready to use but are not yet imported by any handler. Each one exposes a small class with no global state (apart from the default `lo
+      gger` instance), so you can create as many independent instances as you need, for example one rate limiter per route or one cache per upstream service.
+   72                                                                 Jump to bottom (ctrl+End) ↓

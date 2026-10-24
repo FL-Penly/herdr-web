@@ -1,0 +1,26 @@
+id = "quick-fork"
+name = "Quick fork"
+# Kept in step with the herdr-web version in package.json (test/plugin/manifest.test.ts checks it).
+version = "0.1.0"
+min_herdr_version = "0.9.5"
+description = "Fork the Claude Code or Codex session in the focused pane into a new pane or tab, keeping its environment (and, for Claude Code, the flags that shape the session)."
+# macOS works without environment inheritance: there is no /proc/<pid>/environ to read it from.
+platforms = ["linux", "macos"]
+
+[[actions]]
+id = "right"
+title = "Quick fork: session -> split right"
+contexts = ["pane"]
+command = ["bun", "fork.ts", "right"]
+
+[[actions]]
+id = "down"
+title = "Quick fork: session -> split down"
+contexts = ["pane"]
+command = ["bun", "fork.ts", "down"]
+
+[[actions]]
+id = "tab"
+title = "Quick fork: session -> new tab"
+contexts = ["pane"]
+command = ["bun", "fork.ts", "tab"]

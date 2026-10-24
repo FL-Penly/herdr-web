@@ -1,0 +1,18 @@
+⏺ I'll clean the build directory and rerun the tests.
+
+⏺ Bash(rm -rf build && npm test)
+  ⎿  Running…
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+ Bash command
+
+   rm -rf build && npm test
+   Remove the build output and run the test suite
+
+ Do you want to proceed?
+ ❯ 1. Yes
+   2. Yes, and don't ask again for npm test commands in /home/alice/project
+   3. No, and tell Claude what to do differently (esc)
+
+ Esc to cancel · Tab to amend · ctrl+e to explain
+

@@ -1,0 +1,11 @@
+⏺ Done. The parser now handles wrapped rows.
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+ Select model
+ Switch between Claude models. Applies to this session and future Claude Code sessions.
+
+   Default (recommended)  Opus 5.5 with 1M context · Best for complex work
+ ❯ Sonnet                 Sonnet 5.5 · Best for everyday tasks
+   Haiku                  Haiku 5.5 · Fastest for quick answers
+
+ Enter to confirm · Esc to exit

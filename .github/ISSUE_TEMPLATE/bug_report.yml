@@ -1,0 +1,54 @@
+name: Bug report
+description: Something in herdr-web or the quick-fork plugin does not work as it should.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time. Most bugs here come from a Claude Code or Codex TUI that changed its screen,
+        so versions and a screen dump help more than anything else. Please remove anything private first.
+        Security issues: do not file them here, see SECURITY.md.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: dropdown
+    id: agent
+    attributes:
+      label: Agent
+      options:
+        - Claude Code
+        - Codex
+        - Both / not agent-specific
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: "`herdr --version`, `claude --version`, `codex --version`, `bun --version`, and the herdr-web commit."
+      placeholder: herdr 0.9.5, Claude Code 2.1.0, Codex 0.164.0, Bun 1.2.5, herdr-web abc1234
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: OS and browser
+      placeholder: Ubuntu 24.04, Firefox 140 / iOS Safari
+  - type: textarea
+    id: screen
+    attributes:
+      label: Screen dump
+      description: |
+        For a dialog, status or prompt that is shown wrong: the pane's screen at that moment, from
+        `herdr pane read <pane> --source visible --lines 60`.
+      render: text
+  - type: textarea
+    id: logs
+    attributes:
+      label: Server log or browser console
+      description: "`journalctl --user -u herdr-web` if you run the service, or the terminal output of `bun start`."
+      render: text

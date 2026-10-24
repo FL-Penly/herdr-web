@@ -1,0 +1,40 @@
+   83 Every error response is a JSON object with an `error` string and, where useful, extra context fields such as `path`, `method`, `limit`, or `id`. Clients shou
+      ld branch on the HTTP status code first and treat the `error` text as a human-readable message rather than a stable machine identifier, because the wording m
+      ay change (as it already has once, when the 404 message became `no such route`).
+   84
+   85 ## Limits
+   86
+   87 - Request bodies: 1 KB for both `/echo` and `/users`.
+   88 - Users: unbounded in memory; there is no pagination on `GET /users`.
+   89 - No authentication, TLS, or CORS handling is built in.
+   90
+   91 ## Development
+   92
+   93 Check a module's syntax without running it:
+   94
+   95 ```sh
+   96 node --check routes.js
+   97 ```
+   98
+   99 Try the router against an ephemeral local server:
+  100
+  101 ```sh
+  102 node -e "require('http').createServer(require('./routes').route).listen(3000)"
+  103 curl -s localhost:3000/health
+  104 curl -s -X POST --data 'hello' localhost:3000/echo
+  105 ```
+  106
+  107 The same pattern works for the users API by swapping in `require('./api').api`.
+  108
+  109 ## Current status
+  110
+  111 `routes.js` and `api.js` are both written and pass `node --check`, but neither is confirmed to be mounted by `server.js` yet, and the planned `server.js` cha
+      nges (a `'listening'` log line and a reference to `api.js`) have not been applied. The utility modules are standalone and unused. The `status` export in `uti
+      l.js` is now `'up'`, while `/health` still returns a hard-coded `'ok'`, so the two should be reconciled before anything depends on either value.
+╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+ Do you want to create docs.md?
+ ❯ 1. Yes
+   2. Yes, and switch to accept edits (auto-approve file edits and common file commands) for this session (shift+tab)
+   3. No
+
+ Esc to cancel · Tab to amend

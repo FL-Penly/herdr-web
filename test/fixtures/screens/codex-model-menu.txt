@@ -1,0 +1,9 @@
+• Done.
+
+  Select Model and Effort
+  Switch the model for this and future Codex CLI sessions
+
+› 1. gpt-6.0-astra (current)  Latest frontier agentic coding model.
+  2. gpt-6.0-mini             Smaller, faster, cheaper.
+
+  Press enter to confirm or esc to go back

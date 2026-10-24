@@ -1,0 +1,16 @@
+⏺ The footer parser must ignore text like "plan mode on", [Opus 4] and Context 80% left.
+  ◐ high · /effort shows up here too. Options I considered:
+
+  1. Scan the whole screen
+  2. Scan only the footer
+
+  > 1. a quoted list item
+
+  Press enter to continue, or esc to cancel.
+
+  Do you want me to proceed with option 2?
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+❯ 
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  ? for shortcuts

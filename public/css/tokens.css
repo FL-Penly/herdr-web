@@ -1,0 +1,117 @@
+/* Every color is light-dark(light, dark); `color-scheme` on :root picks the side (system, or forced by data-theme). */
+:root {
+  color-scheme: light dark;
+
+  --font-sans: Inter, -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+
+  --color-bg: light-dark(#ffffff, #0f0f0f);
+  --color-sidebar: light-dark(#f7f7f7, #141414);
+  --color-raised: light-dark(#ffffff, #1a1a1a);
+  --color-hover: light-dark(#f0f0f0, #1f1f1f);
+  --color-selected: light-dark(#e8e8e8, #262626);
+  --color-line: light-dark(#ececec, #232323);
+  --color-line-strong: light-dark(#e0e0e0, #2e2e2e);
+  --color-text: light-dark(#1a1a1a, #ececec);
+  --color-text-muted: light-dark(#5c5c5c, #a1a1a1);
+  --color-text-faint: light-dark(#9a9a9a, #6b6b6b);
+  --color-bubble: light-dark(#f1f1f1, #232323);
+  --color-code: light-dark(#f6f6f6, #161616);
+  --color-accent: light-dark(#1a1a1a, #ececec);
+  --color-accent-text: light-dark(#ffffff, #0f0f0f);
+  --color-green: light-dark(#1a7f37, #3fb950);
+  --color-red: light-dark(#cf222e, #f85149);
+  --color-amber: light-dark(#9a6700, #d29922);
+  --color-blue: light-dark(#0969da, #58a6ff);
+  --color-claude: light-dark(#c15f3c, #d97757);
+  --color-green-bg: light-dark(#1a7f3714, #3fb9501a);
+  --color-red-bg: light-dark(#cf222e12, #f851491a);
+  --color-blue-bg: light-dark(#0969da12, #58a6ff1a);
+  --color-on-blue: #ffffff;
+  --color-scrim: rgb(0 0 0 / 0.4);
+  --color-overlay: rgb(0 0 0 / 0.38);
+  --color-focus: var(--color-blue);
+  --color-avatar-from: #6366f1;
+  --color-avatar-to: #ec4899;
+
+  --term-bg: light-dark(#fbfbfb, #0c0c0c);
+  --term-fg: light-dark(#1f2328, #d4d4d4);
+  --term-cursor: light-dark(#1f2328, #e6e6e6);
+  --term-selection: light-dark(#0969da33, #3a3d4180);
+  --term-black: light-dark(#24292f, #3b3b3b);
+  --term-red: light-dark(#cf222e, #f47067);
+  --term-green: light-dark(#1a7f37, #57ab5a);
+  --term-yellow: light-dark(#9a6700, #c69026);
+  --term-blue: light-dark(#0969da, #539bf5);
+  --term-magenta: light-dark(#8250df, #b083f0);
+  --term-cyan: light-dark(#1b7c83, #39c5cf);
+  --term-white: light-dark(#6e7781, #c9d1d9);
+  --term-bright-black: light-dark(#57606a, #6e7681);
+  --term-bright-red: light-dark(#a40e26, #ff938a);
+  --term-bright-green: light-dark(#2da44e, #6bc46d);
+  --term-bright-yellow: light-dark(#bf8700, #daaa3f);
+  --term-bright-blue: light-dark(#218bff, #6cb6ff);
+  --term-bright-magenta: light-dark(#a475f9, #dcbdfb);
+  --term-bright-cyan: light-dark(#3192aa, #56d4dd);
+  --term-bright-white: light-dark(#8c959f, #f0f6fc);
+
+  --space-0-5: 2px;
+  --space-1: 4px;
+  --space-1-5: 6px;
+  --space-2: 8px;
+  --space-2-5: 10px;
+  --space-3: 12px;
+  --space-3-5: 14px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-3xl: 20px;
+  --radius-pill: 999px;
+
+  --text-2xs: 10.5px;
+  --text-xs: 11.5px;
+  --text-sm: 12.5px;
+  --text-md: 13px;
+  --text-base: 14px;
+  --text-lg: 15px;
+  --text-xl: 16px;
+  --text-2xl: 22px;
+  --text-3xl: 28px;
+  --leading: 1.55;
+
+  --shadow-1: 0 1px 2px rgb(0 0 0 / 0.25);
+  --shadow-2: 0 8px 24px rgb(0 0 0 / 0.14);
+  --shadow-3: 0 16px 48px light-dark(rgb(0 0 0 / 0.14), rgb(0 0 0 / 0.45)), 0 0 0 1px
+    light-dark(rgb(0 0 0 / 0.07), rgb(255 255 255 / 0.06));
+
+  --z-scrim: 29;
+  --z-drawer: 30;
+  --z-popover: 40;
+  --z-slash: 45;
+  --z-overlay: 50;
+  --z-toast: 60;
+  --z-signin: 70;
+
+  --sidebar-width: 264px;
+  --review-width: minmax(320px, 34%);
+  --column-width: 760px;
+  --bar-height: 52px;
+  --tabs-height: 38px;
+  --duration-fast: 0.15s;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}

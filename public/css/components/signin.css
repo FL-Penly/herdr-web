@@ -1,0 +1,60 @@
+.signin {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-signin);
+  display: grid;
+  place-items: center;
+  padding: calc(env(safe-area-inset-top) + var(--space-4)) var(--space-4)
+    calc(env(safe-area-inset-bottom) + var(--space-4));
+  overflow-y: auto;
+  background: var(--color-bg);
+}
+
+.signin-card {
+  display: grid;
+  gap: var(--space-3);
+  width: min(400px, 100%);
+}
+
+.signin-card .brand {
+  flex: none;
+  margin-bottom: var(--space-2);
+}
+
+.signin-title {
+  margin: 0;
+  font-size: var(--text-2xl);
+  font-weight: 600;
+}
+
+.signin-body,
+.signin-hint {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+.signin-hint {
+  color: var(--color-text-faint);
+  font-size: var(--text-sm);
+}
+
+.signin-hint code {
+  font-family: var(--font-mono);
+  overflow-wrap: anywhere;
+}
+
+.signin-card .input {
+  min-height: 44px;
+  font-size: var(--text-xl);
+}
+
+.signin-error {
+  margin: 0;
+  color: var(--color-red);
+  font-size: var(--text-md);
+}
+
+.signin-submit {
+  justify-content: center;
+  min-height: 44px;
+}
